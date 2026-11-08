@@ -50,9 +50,9 @@ print(scores)
 
 **Answer: **
 
--The difference between m1 and m1 even though they use the same numbers (1:9) and same size (3 x 3) is because of the filling order.
+- The difference between m1 and m1 even though they use the same numbers (1:9) and same size (3 x 3) is because of the filling order.
 
--byrow = TRUE changes the direction in which the values are paced into the matrix. It went from going down each column to going across each row.
+- byrow = TRUE changes the direction in which the values are paced into the matrix. It went from going down each column to going across each row.
 
 
 **Question #2**
@@ -186,9 +186,9 @@ print(scores_v3)
 
 **Answer:**
 
--If you try cbind(scores, c(85, 91, 100)), R gives an error because the new vector has 3 values but the matrix only has 2 rows, so the sizes dont match.
+- If you try cbind(scores, c(85, 91, 100)), R gives an error because the new vector has 3 values but the matrix only has 2 rows, so the sizes dont match.
 
--cbind() and rbind() need the size to match because they have to line the new data u with the existing rows or columns. If the dimensions dont match, R cant line the data in the right aces and just gives an error.
+- cbind() and rbind() need the size to match because they have to line the new data u with the existing rows or columns. If the dimensions dont match, R cant line the data in the right aces and just gives an error.
 
 
 **Question #8**
@@ -198,9 +198,9 @@ Give a concrete example (e.g., daily sales, weekly attendance) and explain your 
 
 **Answer:**
 
--For example, say you track daily sales for a few products. Every day you get a new set of sales numbers. Since each day is a new record (a new row), you use rbind() to add that day’s data at the bottom of the table.
+- For example, say you track daily sales for a few products. Every day you get a new set of sales numbers. Since each day is a new record (a new row), you use rbind() to add that day’s data at the bottom of the table.
 
--You choose rbind() instead of cbind() because you’re adding another observation, not a new variable.
+- You choose rbind() instead of cbind() because you’re adding another observation, not a new variable.
 
 ## Part E — Arrays: Creating and Subsetting
 ```{r}

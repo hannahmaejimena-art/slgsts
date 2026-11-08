@@ -399,11 +399,14 @@ ncol = 3, but they look different.</p></li>
 matrix.</p></li>
 </ul>
 <p><strong>Answer: </strong></p>
-<p>-The difference between m1 and m1 even though they use the same
-numbers (1:9) and same size (3 x 3) is because of the filling order.</p>
-<p>-byrow = TRUE changes the direction in which the values are paced
+<ul>
+<li><p>The difference between m1 and m1 even though they use the same
+numbers (1:9) and same size (3 x 3) is because of the filling
+order.</p></li>
+<li><p>byrow = TRUE changes the direction in which the values are paced
 into the matrix. It went from going down each column to going across
-each row.</p>
+each row.</p></li>
+</ul>
 <p><strong>Question #2</strong></p>
 <ul>
 <li><p>If you tried matrix(1:8, nrow = 3, ncol = 3) (only 8 numbers for
@@ -573,13 +576,15 @@ warning/error, and explain why cbind() and rbind()) require matching
 dimensions.</li>
 </ul>
 <p><strong>Answer:</strong></p>
-<p>-If you try cbind(scores, c(85, 91, 100)), R gives an error because
-the new vector has 3 values but the matrix only has 2 rows, so the sizes
-dont match.</p>
-<p>-cbind() and rbind() need the size to match because they have to line
-the new data u with the existing rows or columns. If the dimensions dont
-match, R cant line the data in the right aces and just gives an
-error.</p>
+<ul>
+<li><p>If you try cbind(scores, c(85, 91, 100)), R gives an error
+because the new vector has 3 values but the matrix only has 2 rows, so
+the sizes dont match.</p></li>
+<li><p>cbind() and rbind() need the size to match because they have to
+line the new data u with the existing rows or columns. If the dimensions
+dont match, R cant line the data in the right aces and just gives an
+error.</p></li>
+</ul>
 <p><strong>Question #8</strong></p>
 <ul>
 <li>In what situation would you use rbind() instead of cbind() when
@@ -587,12 +592,14 @@ updating a dataset over time? Give a concrete example (e.g., daily
 sales, weekly attendance) and explain your reasoning.</li>
 </ul>
 <p><strong>Answer:</strong></p>
-<p>-For example, say you track daily sales for a few products. Every day
-you get a new set of sales numbers. Since each day is a new record (a
-new row), you use rbind() to add that day’s data at the bottom of the
-table.</p>
-<p>-You choose rbind() instead of cbind() because you’re adding another
-observation, not a new variable.</p>
+<ul>
+<li><p>For example, say you track daily sales for a few products. Every
+day you get a new set of sales numbers. Since each day is a new record
+(a new row), you use rbind() to add that day’s data at the bottom of the
+table.</p></li>
+<li><p>You choose rbind() instead of cbind() because you’re adding
+another observation, not a new variable.</p></li>
+</ul>
 </div>
 <div id="part-e-arrays-creating-and-subsetting" class="section level2">
 <h2>Part E — Arrays: Creating and Subsetting</h2>
