@@ -357,6 +357,9 @@ display: none;
 </div>
 
 
+<p><strong>R Lab: Arithmetic Operations and Basic Data
+Types</strong></p>
+<p>Hannah Mae T. Jimena</p>
 <div id="part-a---arithmetic-operations" class="section level2">
 <h2>Part A - Arithmetic Operations</h2>
 <pre class="r"><code># TODO: Store 17 in a variable called a, and 5 in a variable called b
@@ -375,11 +378,6 @@ a + b</code></pre>
 <pre><code>## [1] 3.4</code></pre>
 <pre class="r"><code>a %% b</code></pre>
 <pre><code>## [1] 2</code></pre>
-<p>[1] 22</p>
-<p>[1] 12</p>
-<p>[1] 85</p>
-<p>[1] 3.4</p>
-<p>[1] 2</p>
 <pre class="r"><code># TODO: Using the same a and b, compute and print a %% b and a %/% b
 # a %% b = remainder of a / b
 # a %/% b = whole-number (integer) division
@@ -388,33 +386,28 @@ a %% b</code></pre>
 <pre><code>## [1] 2</code></pre>
 <pre class="r"><code>a %/% b</code></pre>
 <pre><code>## [1] 3</code></pre>
-<p>[1] 2</p>
-<p>[1] 3</p>
 <pre class="r"><code># TODO: Print 2 raised to the power of 10 using the ^ operator
 2^10</code></pre>
 <pre><code>## [1] 1024</code></pre>
-<p>[1] 1024</p>
 <pre class="r"><code>17/5</code></pre>
 <pre><code>## [1] 3.4</code></pre>
 <pre class="r"><code>17 %% 5</code></pre>
 <pre><code>## [1] 2</code></pre>
 <pre class="r"><code>17 %/% 5</code></pre>
 <pre><code>## [1] 3</code></pre>
-<p>[1] 3.4</p>
-<p>[1] 2</p>
-<p>[1] 3</p>
 <p><strong>Question #1:</strong> Run 17 / 5, 17 %% 5, and 17 %/% 5 side
 by side. In your own words, explain how these three results relate to
 each other mathematically.</p>
-<p>Answer: The results relate to each other mathematically because %%
-returns a remainder of the same division and the %/% returns an integer
-division.</p>
+<p><strong>Answer:</strong> The results relate to each other
+mathematically because %% returns a remainder of the same division and
+the %/% returns an integer division.</p>
 <p><strong>Question #2:</strong> Predict the output of 10 %% 3 and 10
 %/% 3 before running the code. Were you correct? If not, explain what
 you misunderstood.</p>
-<p>Answer: The 10 %% 3 gives the remainder 1 and 10 %/% 3 gives the
-integer quotient 3. The prediction was correct because that matches the
-standard meaning of the modulo and integer- division operators.</p>
+<p><strong>Answer:</strong> The 10 %% 3 gives the remainder 1 and 10 %/%
+3 gives the integer quotient 3. The prediction was correct because that
+matches the standard meaning of the modulo and integer- division
+operators.</p>
 </div>
 <div id="part-b---basic-data-types" class="section level2">
 <h2>Part B - Basic Data Types</h2>
@@ -436,11 +429,6 @@ typeof (x)</code></pre>
 <pre><code>## [1] &quot;logical&quot;</code></pre>
 <pre class="r"><code>typeof (v)</code></pre>
 <pre><code>## [1] &quot;complex&quot;</code></pre>
-<p>[1] “double”</p>
-<p>[1] “integer”</p>
-<p>[1] “character”</p>
-<p>[1] “logical”</p>
-<p>[1] “complex”</p>
 <pre class="r"><code># TODO: Use class() to check the class of each of x, y, z, w, v
 
 class (x)</code></pre>
@@ -453,11 +441,6 @@ class (x)</code></pre>
 <pre><code>## [1] &quot;logical&quot;</code></pre>
 <pre class="r"><code>class (v)</code></pre>
 <pre><code>## [1] &quot;complex&quot;</code></pre>
-<p>[1] “numeric”</p>
-<p>[1] “integer”</p>
-<p>[1] “character”</p>
-<p>[1] “logical”</p>
-<p>[1] “complex”</p>
 <pre class="r"><code># TODO: Use mode() to check the class of each of x, y, z, w, v
 
 mode (x)</code></pre>
@@ -470,26 +453,21 @@ mode (x)</code></pre>
 <pre><code>## [1] &quot;logical&quot;</code></pre>
 <pre class="r"><code>mode (v)</code></pre>
 <pre><code>## [1] &quot;complex&quot;</code></pre>
-<p>[1] “numeric”</p>
-<p>[1] “numeric”</p>
-<p>[1] “character”</p>
-<p>[1] “logical”</p>
-<p>[1] “complex”</p>
 <p><strong>Question #3:</strong> x &lt;- 42 and y &lt;- 42L look almost
 identical, but typeof(x) and typeof(y) give different answers. Explain
 the difference in your own words.</p>
-<p>Answer: x &lt;- 42 is stored as a double by default, so typeof (x) is
-“double”. Adding the L makes y &lt;- 42L a true integer, so typeof (y)
-is “integer”. They print the same but differ in storage and
-precision.</p>
+<p><strong>Answer:</strong> x &lt;- 42 is stored as a double by default,
+so typeof (x) is “double”. Adding the L makes y &lt;- 42L a true
+integer, so typeof (y) is “integer”. They print the same but differ in
+storage and precision.</p>
 <p><strong>Question #4:</strong> Is typeof() ever different from class()
 and from mode() for the same object? Look at your results above and
 explain any case where this happens (or, if you did not see one, explain
 what you would expect for a matrix or factor).</p>
-<p>Answer: Yes. A matrix keeps typeof as its data type and mode as
-“numeric”, yet its class is “matrix”. A factor has typeof “integer” and
-mode “numeric”, but class “factor”. typeof shows storgae, mode is
-broader, and class controls behavior.</p>
+<p><strong>Answer:</strong> Yes. A matrix keeps typeof as its data type
+and mode as “numeric”, yet its class is “matrix”. A factor has typeof
+“integer” and mode “numeric”, but class “factor”. typeof shows storgae,
+mode is broader, and class controls behavior.</p>
 </div>
 <div id="part-c---type-conversion" class="section level2">
 <h2>Part C - Type Conversion</h2>
@@ -504,9 +482,6 @@ typeof(num)</code></pre>
 <pre><code>## [1] &quot;numeric&quot;</code></pre>
 <pre class="r"><code>mode(num)</code></pre>
 <pre><code>## [1] &quot;numeric&quot;</code></pre>
-<p>[1] “double”</p>
-<p>[1] “numeric”</p>
-<p>[1] “numeric”</p>
 <pre class="r"><code># TODO: Convert the number 0 and the number 1 to logical using as.logical()
 # What do you get?
 
@@ -514,8 +489,6 @@ as.logical(0)</code></pre>
 <pre><code>## [1] FALSE</code></pre>
 <pre class="r"><code>as.logical(1)</code></pre>
 <pre><code>## [1] TRUE</code></pre>
-<p>[1] FALSE</p>
-<p>[1] TRUE</p>
 <pre class="r"><code># TODO: Try converting bad_string to numeric using as.numeric()
 # Run this chunk and observe the warning message and the result
 
@@ -523,36 +496,36 @@ bad_string &lt;- &quot;hello123&quot;
 as.numeric(bad_string)</code></pre>
 <pre><code>## Warning: NAs introduced by coercion</code></pre>
 <pre><code>## [1] NA</code></pre>
-<p>[1] NA</p>
-<p>Warning message: NAs introduced by coercion</p>
 <p><strong>Question #5:</strong> When you ran the conversion-fail chunk,
 R produced NA and a warning instead of stopping with an error.</p>
 <ul>
 <li>Why do you think R is designed to give a warning here rather than
 crashing the whole script?</li>
 </ul>
-<p>Answer: R gives a warning instead of crashing so the rest of the
-script can continue running; this is useful for inactive data analysis
-where partial results are still valuable.</p>
+<p><strong>Answer:</strong> R gives a warning instead of crashing so the
+rest of the script can continue running; this is useful for inactive
+data analysis where partial results are still valuable.</p>
 <ul>
 <li>What are the risks of this behavior if you don’t read your
 warnings?</li>
 </ul>
-<p>Answer: If you ignore the warnings, NAs can silently spread through
-later calculations and produce wrong final answers without any further
-notice.</p>
+<p><strong>Answer:</strong> If you ignore the warnings, NAs can silently
+spread through later calculations and produce wrong final answers
+without any further notice.</p>
 <p><strong>Question #6:</strong> as.logical(0) and as.logical(1) convert
 to FALSE and TRUE.</p>
 <ul>
 <li>What do you think as.logical(2) and as.logical(-1)` will
 produce?</li>
 </ul>
-<p>Answer: Both as.logical(2) and as.logical(-1) produce TRUE.</p>
+<p><strong>Answer:</strong> Both as.logical(2) and as.logical(-1)
+produce TRUE.</p>
 <ul>
 <li>Test it, then explain the rule R seems to be following. Answer:</li>
 </ul>
-<p>Answer: After testing, the rule is clear: only 0 becomes FALSE; every
-other number (positive or negative) becomes TRUE.</p>
+<p><strong>Answer:</strong> After testing, the rule is clear: only 0
+becomes FALSE; every other number (positive or negative) becomes
+TRUE.</p>
 </div>
 <div id="part-d---strings" class="section level2">
 <h2>Part D - Strings</h2>
@@ -566,9 +539,6 @@ print(first_name)</code></pre>
 <pre><code>## [1] &quot;Dela Cruz&quot;</code></pre>
 <pre class="r"><code>cat(first_name, last_name, &quot;\n&quot;)</code></pre>
 <pre><code>## Juan Dela Cruz</code></pre>
-<p>[1] “Juan”</p>
-<p>[1] “Dela Cruz”</p>
-<p>Juan Dela Cruz</p>
 <pre class="r"><code># TODO: Use paste() to combine first_name and last_name into a full name
 # TODO: Use paste0() to do the same, and compare the two results
 
@@ -576,14 +546,11 @@ paste(first_name, last_name)</code></pre>
 <pre><code>## [1] &quot;Juan Dela Cruz&quot;</code></pre>
 <pre class="r"><code>paste0(first_name, last_name)</code></pre>
 <pre><code>## [1] &quot;JuanDela Cruz&quot;</code></pre>
-<p>[1] “Juan Dela Cruz”</p>
-<p>[1] “JuanDela Cruz”</p>
 <pre class="r"><code># TODO: Use paste() with the argument sep = &quot;-&quot; to join first_name and
 # last_name with a dash instead of a space
 
 paste(first_name, last_name, sep = &quot;-&quot;)</code></pre>
 <pre><code>## [1] &quot;Juan-Dela Cruz&quot;</code></pre>
-<p>[1] “Juan-Dela Cruz”</p>
 <pre class="r"><code># TODO: Use paste0() to build the sentence:
 # &quot;Juan Dela Cruz is 21 years old.&quot; by combining full_name, age, and text
 
@@ -591,14 +558,13 @@ full_name &lt;- paste(first_name, last_name)
 age &lt;- 21
 paste0(full_name, &quot; is &quot;, age, &quot; years old.&quot;)</code></pre>
 <pre><code>## [1] &quot;Juan Dela Cruz is 21 years old.&quot;</code></pre>
-<p>[1] “Juan Dela Cruz is 21 years old.”</p>
 <p><strong>Question #7:</strong> paste() and paste0() produced different
 results for the same two strings. Explain exactly why, referencing what
 each function does by default.</p>
-<p>Answer: paste() joins strings with a space by default (sep = ” “), so
-you get”Juan Dela Cruz.” paste0() joins with no separator(sep = ““), so
-you get”JuanDela Cruz”.</p>
-<p><strong>Question #8:</strong> In the strings-numbers chunk, you
+<p><strong>Answer:</strong> paste() joins strings with a space by
+default (sep = ” “), so you get”Juan Dela Cruz.” paste0() joins with no
+separator(sep = ““), so you get”JuanDela Cruz”.</p>
+<p><strong>Question #8:</strong>In the strings-numbers chunk, you
 combined a character string with a numeric variable (age) using paste0()
 without first converting age to a string.</p>
 <ul>
@@ -606,10 +572,10 @@ without first converting age to a string.</p>
 make this work, and how it relates to the type conversions you practiced
 in Part C.</li>
 </ul>
-<p>Answer: No, it did not cause an error. paste0() (and paste())
-automatically converts the numeric age to a character string behind the
-scenes before joining. This is the same kind of coercion you practiced
-in Part C with functions like as.character().</p>
+<p><strong>Answer:</strong> No, it did not cause an error. paste0() (and
+paste()) automatically converts the numeric age to a character string
+behind the scenes before joining. This is the same kind of coercion you
+practiced in Part C with functions like as.character().</p>
 </div>
 <div id="part-e-critical-thinking-challenge" class="section level2">
 <h2>Part E: Critical Thinking Challenge</h2>
@@ -623,7 +589,6 @@ in Part C with functions like as.character().</p>
 
 as.numeric(&quot;5&quot;) + 5</code></pre>
 <pre><code>## [1] 10</code></pre>
-<p>[1] 10</p>
 <p><strong>Question #9:</strong> Some programming languages
 automatically convert “5” + 5 into 10 without an error. R does not.</p>
 <ul>
@@ -631,20 +596,20 @@ automatically convert “5” + 5 into 10 without an error. R does not.</p>
 do you think R requires an explicit conversion instead of guessing what
 the programmer meant?</li>
 </ul>
-<p>Answer: R requires an explicit conversion because it keeps character
-and numeric types strictly separate. It refuses to guess the
-programmer’s intention, which prevents silent errors and forces the user
-to confirm the correct type.</p>
+<p><strong>Answer:</strong> R requires an explicit conversion because it
+keeps character and numeric types strictly separate. It refuses to guess
+the programmer’s intention, which prevents silent errors and forces the
+user to confirm the correct type.</p>
 <p><strong>Question #10:</strong> Suppose a classmate writes a script
 that reads a column of “numbers” from a text file. The column looks
 numeric, but when they try sum() on it, R throws an error. Based on
 everything in this lab (types, typeof()/class()/mode(), conversion,
 warnings), write a short paragraph explaining what likely went wrong and
 the steps you’d take to diagnose and fix it.</p>
-<p>Answer: The column was probably imported as character even though the
-values look numeric, so sum() fails. Check typeof(), class(), and,
-mode(), convert with as.numeric(), watch for coercion warnings or NAs,
-then recalculate the sum.</p>
+<p><strong>Answer:</strong> The column was probably imported as
+character even though the values look numeric, so sum() fails. Check
+typeof(), class(), and, mode(), convert with as.numeric(), watch for
+coercion warnings or NAs, then recalculate the sum.</p>
 <p><strong>Conclusion:</strong> In 3–4 sentences, summarize what you
 learned about how R handles different data types, and why understanding
 typeof()/class() and conversion functions matters before doing
