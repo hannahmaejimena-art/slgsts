@@ -403,11 +403,13 @@ included.</li>
 </ol>
 <pre class="r"><code>worker_age[-c(4, 14, 24, 44)] &lt;- 0</code></pre>
 <p><strong>Question #2:</strong></p>
-<p>R has actually lots of built-in datasets.</p>
-<p>For example, the rivers data “gives the lengths (in miles) of 141
+<ul>
+<li><p>R has actually lots of built-in datasets.</p></li>
+<li><p>For example, the rivers data “gives the lengths (in miles) of 141
 “major” rivers in North America, as compiled by the US Geological
-Survey”.</p>
-<p>Use data(rivers)</p>
+Survey”.</p></li>
+<li><p>Use data(rivers)</p></li>
+</ul>
 <ol style="list-style-type: lower-alpha">
 <li>Get the number of elements (length) in rivers, their sum (sum), mean
 (mean), median(median), variance(var), standard deviation(sd), minimum
@@ -449,9 +451,11 @@ result</code></pre>
 ##         min         max 
 ##    135.0000   3710.0000</code></pre>
 <p><strong>Question #3:</strong></p>
-<p>The table below gives the 25 most powerful celebrities and their
+<ul>
+<li>The table below gives the 25 most powerful celebrities and their
 annual pay as ranked by the editions of Forbes magazine and as listed on
-the Forbes.com website.</p>
+the Forbes.com website.</li>
+</ul>
 <p>Forbes Ranking</p>
 <ol style="list-style-type: lower-alpha">
 <li>Create vectors according to the above table.</li>
@@ -498,9 +502,11 @@ Pay[19] &lt;- 90</code></pre>
 ## 23    23             Jay Leno  32
 ## 24    24          Celine Dion  40
 ## 25    25          Kobe Bryant  31</code></pre>
-<p><strong>Question #4:</strong> Create a list of ten (10) vegetables
-you ate during your lifetime. If none, just list down the vegetables in
-your mind.</p>
+<p><strong>Question #4:</strong></p>
+<ul>
+<li>Create a list of ten (10) vegetables you ate during your lifetime.
+If none, just list down the vegetables in your mind.</li>
+</ul>
 <pre class="r"><code>vegetables &lt;- c(&quot;Cabbage&quot;, &quot;Cucumber&quot;, &quot;Beans&quot;, &quot;Radish&quot;, &quot;Ginger&quot;, &quot;Pepper&quot;, &quot;Squash&quot;, &quot;Carrot&quot;, &quot;Eggplant&quot;, &quot;Potato&quot;)</code></pre>
 <ol style="list-style-type: lower-alpha">
 <li>Add 2 additional vegetables after the last vegetables in the list.
@@ -515,14 +521,18 @@ vegetables</code></pre>
 </ol>
 <pre class="r"><code>length(vegetables)</code></pre>
 <pre><code>## [1] 12</code></pre>
-<p>Add 4 additional vegetables after index 5. What is the result?</p>
+<ol start="3" style="list-style-type: lower-alpha">
+<li>Add 4 additional vegetables after index 5. What is the result?</li>
+</ol>
 <pre class="r"><code>vegetables &lt;- c(vegetables[1:5], &quot;Broccoli&quot;, &quot;Onions&quot;, &quot;Lettuce&quot;, &quot;Celery&quot;,
 vegetables[6:length(vegetables)])
 vegetables</code></pre>
 <pre><code>##  [1] &quot;Cabbage&quot;  &quot;Cucumber&quot; &quot;Beans&quot;    &quot;Radish&quot;   &quot;Ginger&quot;   &quot;Broccoli&quot;
 ##  [7] &quot;Onions&quot;   &quot;Lettuce&quot;  &quot;Celery&quot;   &quot;Pepper&quot;   &quot;Squash&quot;   &quot;Carrot&quot;  
 ## [13] &quot;Eggplant&quot; &quot;Potato&quot;   &quot;Corn&quot;     &quot;Garlic&quot;</code></pre>
-<p>How many datapoints does your vegetable list have?</p>
+<ol start="4" style="list-style-type: lower-alpha">
+<li>How many datapoints does your vegetable list have?</li>
+</ol>
 <pre class="r"><code>length(vegetables)</code></pre>
 <pre><code>## [1] 16</code></pre>
 </div>

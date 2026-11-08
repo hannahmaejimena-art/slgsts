@@ -46,11 +46,11 @@ worker_age[-c(4, 14, 24, 44)] <- 0
 ```
 **Question #2:**
 
-R has actually lots of built-in datasets.
+- R has actually lots of built-in datasets.
 
-For example, the rivers data “gives the lengths (in miles) of 141 “major” rivers in North America, as compiled by the US Geological Survey”.
+- For example, the rivers data “gives the lengths (in miles) of 141 “major” rivers in North America, as compiled by the US Geological Survey”.
 
-Use data(rivers)
+- Use data(rivers)
 
 a. Get the number of elements (length) in rivers, their sum (sum), mean (mean), median(median), variance(var), standard deviation(sd), minimum (min) and maximum (max).
 ```{r}
@@ -81,7 +81,7 @@ result
 ```
 **Question #3:**
 
-The table below gives the 25 most powerful celebrities and their annual pay as ranked by the editions of Forbes magazine and as listed on the Forbes.com website.
+- The table below gives the 25 most powerful celebrities and their annual pay as ranked by the editions of Forbes magazine and as listed on the Forbes.com website.
 
 Forbes Ranking
 
@@ -107,7 +107,8 @@ Pay[19] <- 90
 data.frame(Power, Celebrity, Pay)
 ```
 **Question #4:**
-Create a list of ten (10) vegetables you ate during your lifetime. If none, just list down the vegetables in your mind.
+
+- Create a list of ten (10) vegetables you ate during your lifetime. If none, just list down the vegetables in your mind.
 ```{r}
 vegetables <- c("Cabbage", "Cucumber", "Beans", "Radish", "Ginger", "Pepper", "Squash", "Carrot", "Eggplant", "Potato")
 ```
@@ -120,13 +121,13 @@ b. How many datapoints do you have?
 ```{r}
 length(vegetables)
 ```
-Add 4 additional vegetables after index 5. What is the result?
+c. Add 4 additional vegetables after index 5. What is the result?
 ```{r}
 vegetables <- c(vegetables[1:5], "Broccoli", "Onions", "Lettuce", "Celery",
 vegetables[6:length(vegetables)])
 vegetables
 ```
-How many datapoints does your vegetable list have?
+d. How many datapoints does your vegetable list have?
 ```{r}
 length(vegetables)
 ```
