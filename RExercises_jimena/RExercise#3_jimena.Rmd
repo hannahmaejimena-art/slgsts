@@ -9,7 +9,8 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-R Lab: Data Structures - Vectors and Lists
+**R Lab: Data Structures - Vectors and Lists**
+
 Hannah Mae T. Jimena
 
 ## Part A — Creating Vectors: c(), seq(), rep()
@@ -335,4 +336,4 @@ Suppose a classmate stores related data as three separate, unconnected vectors (
 ## Conclusion
 In 3–4 sentences, summarize the key differences between vectors and lists in R, and explain when you would choose one data structure over the other.
 
-Answer: Vectors store only one type of data and are simple and fast for calculations lists can hold mixed types of nested objects, making them more flexible for complex data. Use a vector when a values are the same type and you mainly need math or filtering. Use a list when you need to group different kinds of information together.
+**Answer:** Vectors store only one type of data and are simple and fast for calculations lists can hold mixed types of nested objects, making them more flexible for complex data. Use a vector when a values are the same type and you mainly need math or filtering. Use a list when you need to group different kinds of information together.
