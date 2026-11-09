@@ -107,7 +107,7 @@ students[order(students$score, decreasing = TRUE), ]
 
 **Question #6:**
 
-sort(scores) and scores[order(scores)] produce the same final values, but they work completely differently under the hood.
+- sort(scores) and scores[order(scores)] produce the same final values, but they work completely differently under the hood.
 
 - In your own words, explain what order(scores) actually returns (look at the raw numbers it gives you), and why that output is useless on its own unless you use it to index something.
 
