@@ -11,7 +11,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 **R Lab: Data Structures - Vectors and Lists**
 
-Hannah Mae T. Jimena
+**Hannah Mae T. Jimena**
 
 ## Part A — Creating Vectors and List:
 **Question #1:**

@@ -10,7 +10,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 **R Lab: Arithmetic Operations and Basic Data Types**
 
-Hannah Mae T. Jimena
+**Hannah Mae T. Jimena**
 
 ## Part A - Arithmetic Operations
 

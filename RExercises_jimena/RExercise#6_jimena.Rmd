@@ -11,7 +11,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 **R Lab: Data Structures - Data Frames**
 
-Hannah Mae T. Jimena
+**Hannah Mae T. Jimena**
 
 ## Part A — Creating Data Frames
 ```{r}
