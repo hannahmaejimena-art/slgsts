@@ -11,7 +11,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 **R Lab: Data Structures - Matrix and Array**
 
-**Hannah Mae T. Jimena**
+Hannah Mae T. Jimena
 
 ## Part A — Creating Matrices
 ```{r}
