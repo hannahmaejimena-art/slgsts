@@ -13,7 +13,7 @@
 
 <meta name="date" content="2026-11-08" />
 
-<title>RExercise#8_jimena</title>
+<title>R Lab: Data Structures - Data Frames</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -350,268 +350,264 @@ display: none;
 
 
 
-<h1 class="title toc-ignore">RExercise#8_jimena</h1>
+<h1 class="title toc-ignore">R Lab: Data Structures - Data Frames</h1>
 <h4 class="author">Hannah Mae T. Jimena</h4>
 <h4 class="date">2026-11-08</h4>
 
 </div>
 
 
-<p><strong>R Lab: Basic Operations - sort(), rank(), and
-order()</strong></p>
-<p>Hannah Mae T. Jimena</p>
+<div id="part-a-creating-data-frames" class="section level2">
+<h2>Part A — Creating Data Frames</h2>
 <p><strong>Question #1</strong></p>
-<ol style="list-style-type: lower-alpha">
-<li>Create a vector.</li>
-</ol>
-<pre class="r"><code>scores &lt;- c(Ana = 78, Ben = 92, Cid = 85, Dex = 92, Eli = 67, Fay = 88, Gio = 74)
-scores</code></pre>
-<pre><code>## Ana Ben Cid Dex Eli Fay Gio 
-##  78  92  85  92  67  88  74</code></pre>
-<ol start="2" style="list-style-type: lower-alpha">
-<li>Sort the scores in ascending order and descending order. What is the
-output?</li>
-</ol>
-<pre class="r"><code>sort(scores)</code></pre>
-<pre><code>## Eli Gio Ana Cid Fay Ben Dex 
-##  67  74  78  85  88  92  92</code></pre>
-<pre class="r"><code>sort(scores, decreasing = TRUE)</code></pre>
-<pre><code>## Ben Dex Fay Cid Ana Gio Eli 
-##  92  92  88  85  78  74  67</code></pre>
-<ol start="3" style="list-style-type: lower-alpha">
-<li>Print your sorted result from sort-ascending. Check whether the #
-names (“Ana”, “Ben”, …) stayed attached to their correct values.</li>
-</ol>
-<pre class="r"><code>sort(scores)</code></pre>
-<pre><code>## Eli Gio Ana Cid Fay Ben Dex 
-##  67  74  78  85  88  92  92</code></pre>
-<ol start="4" style="list-style-type: lower-alpha">
-<li>Create another vectors:</li>
-</ol>
-<pre class="r"><code>subjects &lt;- c(&quot;Science&quot;, &quot;Math&quot;, &quot;English&quot;, &quot;Filipino&quot;, &quot;PE&quot;) 
-incomplete &lt;- c(85, NA, 90, 70, NA, 95)</code></pre>
-<ol start="5" style="list-style-type: lower-alpha">
-<li>Sort subjects alphabetically using sort()</li>
-</ol>
-<pre class="r"><code>sort(subjects)</code></pre>
-<pre><code>## [1] &quot;English&quot;  &quot;Filipino&quot; &quot;Math&quot;     &quot;PE&quot;       &quot;Science&quot;</code></pre>
-<ol start="6" style="list-style-type: lower-alpha">
-<li>Sort incomplete using sort(). Observe what happens to the NA</li>
-</ol>
-<pre class="r"><code>sort(incomplete)</code></pre>
-<pre><code>## [1] 70 85 90 95</code></pre>
+<p>You are provided a survey summary (Figure 1) of 20 respondents,
+recording sex, father’s occupation, persons at home, siblings at school,
+and type of house — each stored as a numeric code. In this lab you will
+enter this real dataset into R, build a data frame, subset it, inspect
+its properties, recode the numeric codes into meaningful labels, and
+analyze it.</p>
+<p><strong>Create a data frame using the Figure 1.</strong></p>
+<pre class="r"><code># TODO: Before combining these into a data frame, confirm all six vectors
+# have the same length using length() on each one (or wrap them in c()
+# and check for yourself that every value is 20)
+
+Respondent &lt;- 1:20
+Sex &lt;- c(2,2,1,2,2,2,2,2,2,2,1,2,2,2,2,2,2,2,1,2)
+FathersOccupation &lt;- c(1,3,3,3,1,2,3,1,1,1,3,2,1,3,3,1,3,1,2,1)
+PersonsAtHome &lt;- c(5,7,3,8,5,9,6,7,8,4,7,5,4,7,8,8,3,11,7,6)
+SiblingsAtSchool &lt;- c(6,4,4,1,2,1,5,3,1,2,3,2,5,5,2,1,2,5,3,2)
+TypeOfHouses &lt;- c(1,2,3,1,1,3,3,1,2,3,2,3,2,2,3,3,3,3,3,2)
+
+length(Respondent)</code></pre>
+<pre><code>## [1] 20</code></pre>
+<pre class="r"><code>length(Sex)</code></pre>
+<pre><code>## [1] 20</code></pre>
+<pre class="r"><code>length(FathersOccupation)</code></pre>
+<pre><code>## [1] 20</code></pre>
+<pre class="r"><code>length(PersonsAtHome)</code></pre>
+<pre><code>## [1] 20</code></pre>
+<pre class="r"><code>length(SiblingsAtSchool)</code></pre>
+<pre><code>## [1] 20</code></pre>
+<pre class="r"><code>length(TypeOfHouses)</code></pre>
+<pre><code>## [1] 20</code></pre>
+<pre class="r"><code># TODO: Combine all six vectors into a data frame called survey using
+# data.frame(), naming the columns: Respondent, Sex, FathersOccupation,
+# PersonsAtHome, SiblingsAtSchool, TypesOfHouses
+# Print the resulting data frame
+
+survey &lt;- data.frame(
+  Respondent = Respondent,
+  Sex = Sex,
+  FathersOccupation = FathersOccupation,
+  PersonsAtHome = PersonsAtHome,
+  SiblingsAtSchool = SiblingsAtSchool,
+  TypeOfHouses = TypeOfHouses
+)
+print(survey)</code></pre>
+<pre><code>##    Respondent Sex FathersOccupation PersonsAtHome SiblingsAtSchool TypeOfHouses
+## 1           1   2                 1             5                6            1
+## 2           2   2                 3             7                4            2
+## 3           3   1                 3             3                4            3
+## 4           4   2                 3             8                1            1
+## 5           5   2                 1             5                2            1
+## 6           6   2                 2             9                1            3
+## 7           7   2                 3             6                5            3
+## 8           8   2                 1             7                3            1
+## 9           9   2                 1             8                1            2
+## 10         10   2                 1             4                2            3
+## 11         11   1                 3             7                3            2
+## 12         12   2                 2             5                2            3
+## 13         13   2                 1             4                5            2
+## 14         14   2                 3             7                5            2
+## 15         15   2                 3             8                2            3
+## 16         16   2                 1             8                1            3
+## 17         17   2                 3             3                2            3
+## 18         18   2                 1            11                5            3
+## 19         19   1                 2             7                3            3
+## 20         20   2                 1             6                2            2</code></pre>
+<p><strong>a. Describe the data. Get the structure or the summary of the
+data.</strong></p>
+<pre class="r"><code>str(survey)</code></pre>
+<pre><code>## &#39;data.frame&#39;:    20 obs. of  6 variables:
+##  $ Respondent       : int  1 2 3 4 5 6 7 8 9 10 ...
+##  $ Sex              : num  2 2 1 2 2 2 2 2 2 2 ...
+##  $ FathersOccupation: num  1 3 3 3 1 2 3 1 1 1 ...
+##  $ PersonsAtHome    : num  5 7 3 8 5 9 6 7 8 4 ...
+##  $ SiblingsAtSchool : num  6 4 4 1 2 1 5 3 1 2 ...
+##  $ TypeOfHouses     : num  1 2 3 1 1 3 3 1 2 3 ...</code></pre>
+<pre class="r"><code>summary(survey)</code></pre>
+<pre><code>##    Respondent         Sex       FathersOccupation PersonsAtHome 
+##  Min.   : 1.00   Min.   :1.00   Min.   :1.00      Min.   : 3.0  
+##  1st Qu.: 5.75   1st Qu.:2.00   1st Qu.:1.00      1st Qu.: 5.0  
+##  Median :10.50   Median :2.00   Median :2.00      Median : 7.0  
+##  Mean   :10.50   Mean   :1.85   Mean   :1.95      Mean   : 6.4  
+##  3rd Qu.:15.25   3rd Qu.:2.00   3rd Qu.:3.00      3rd Qu.: 8.0  
+##  Max.   :20.00   Max.   :2.00   Max.   :3.00      Max.   :11.0  
+##  SiblingsAtSchool  TypeOfHouses
+##  Min.   :1.00     Min.   :1.0  
+##  1st Qu.:2.00     1st Qu.:2.0  
+##  Median :2.50     Median :2.5  
+##  Mean   :2.95     Mean   :2.3  
+##  3rd Qu.:4.25     3rd Qu.:3.0  
+##  Max.   :6.00     Max.   :3.0</code></pre>
+<p><strong>Answer:</strong> The data frame survey contains 20
+observations and 6 variables. From str(survey) we see that Respondent is
+integer and the other five variables are currently numeric. The
+summary(survey) shows the minimum, 1st quartile, median, mean, 3rd
+quartile and maximum for each numeric column.</p>
+<p><strong>b. Check for the dimensions. How many rows and
+columns?</strong></p>
+<pre class="r"><code>dim(survey)</code></pre>
+<pre><code>## [1] 20  6</code></pre>
+<p><strong>Answer:</strong> The data frame has 20 rows and 6 columns</p>
+<p><strong>c. Create factors for Sex, Father’s Occupation and Types of
+Houses</strong></p>
+<pre class="r"><code>survey$Sex &lt;- factor(survey$Sex,
+                     levels = c(1, 2),
+                     labels = c(&quot;Male&quot;,
+                                &quot;Female&quot;))
+survey$FathersOccupation &lt;- factor(survey$FathersOccupation,
+                                   levels = c(1, 2, 3),
+                                   labels = c(&quot;Farmer&quot;, &quot;Driver&quot;, &quot;Others&quot;))
+survey$TypeOfHouses &lt;- factor(survey$TypeOfHouses,
+                              levels = c(1, 2, 3),
+                              labels = c(&quot;Wood&quot;, &quot;Semi-Concrete&quot;, &quot;Concrete&quot;))
+str(survey)</code></pre>
+<pre><code>## &#39;data.frame&#39;:    20 obs. of  6 variables:
+##  $ Respondent       : int  1 2 3 4 5 6 7 8 9 10 ...
+##  $ Sex              : Factor w/ 2 levels &quot;Male&quot;,&quot;Female&quot;: 2 2 1 2 2 2 2 2 2 2 ...
+##  $ FathersOccupation: Factor w/ 3 levels &quot;Farmer&quot;,&quot;Driver&quot;,..: 1 3 3 3 1 2 3 1 1 1 ...
+##  $ PersonsAtHome    : num  5 7 3 8 5 9 6 7 8 4 ...
+##  $ SiblingsAtSchool : num  6 4 4 1 2 1 5 3 1 2 ...
+##  $ TypeOfHouses     : Factor w/ 3 levels &quot;Wood&quot;,&quot;Semi-Concrete&quot;,..: 1 2 3 1 1 3 3 1 2 3 ...</code></pre>
+<p><strong>d. Get the mean for all columns.</strong></p>
+<pre class="r"><code>colMeans(survey[, c(&quot;Respondent&quot;, &quot;PersonsAtHome&quot;, &quot;SiblingsAtSchool&quot;)], na.rm = TRUE)</code></pre>
+<pre><code>##       Respondent    PersonsAtHome SiblingsAtSchool 
+##            10.50             6.40             2.95</code></pre>
+<p><strong>Answer:</strong> The mean of Respondent is 10.5, the mean of
+PersonsAtHome is 6.40, and the mean of SiblingsAtSchool is 2.95. (Means
+for the factor columns are not meaningful.)</p>
+<p><strong>e. Extract the 1st five rows and then all the columns using
+subsetting functions. What is the output?</strong></p>
+<pre class="r"><code>survey[1:5, ]</code></pre>
+<pre><code>##   Respondent    Sex FathersOccupation PersonsAtHome SiblingsAtSchool
+## 1          1 Female            Farmer             5                6
+## 2          2 Female            Others             7                4
+## 3          3   Male            Others             3                4
+## 4          4 Female            Others             8                1
+## 5          5 Female            Farmer             5                2
+##    TypeOfHouses
+## 1          Wood
+## 2 Semi-Concrete
+## 3      Concrete
+## 4          Wood
+## 5          Wood</code></pre>
+<p><strong>f. Select the variable types of houses then store the vector
+that results as types_houses.</strong></p>
+<pre class="r"><code>types_houses &lt;- survey$TypeOfHouses</code></pre>
+<p><strong>Answer:</strong> The variable TypesOfHouses was extracted and
+stored in a new object called types_houses. It is a factor with three
+levels: Wood, Semi-Concrete and Concrete.</p>
+<p><strong>g. Select only all Males respondent that their father
+occupation was farmer.</strong></p>
+<pre class="r"><code>males_farmer &lt;- subset(survey, Sex == &quot;Male&quot; &amp; FathersOccupation == &quot;Farmer&quot;)
+males_farmer</code></pre>
+<pre><code>## [1] Respondent        Sex               FathersOccupation PersonsAtHome    
+## [5] SiblingsAtSchool  TypeOfHouses     
+## &lt;0 rows&gt; (or 0-length row.names)</code></pre>
+<p><strong>Answer:</strong> Result: There are 0 rows. No male respondent
+had a father who was a farmer in this survey.</p>
+<p><strong>h. Select only all females respondent that have greater than
+or equal to 5 number of siblings attending school.</strong></p>
+<pre class="r"><code>females_5plus_siblings &lt;- subset(survey,
+                                 Sex == &quot;Female&quot; &amp; SiblingsAtSchool &gt;= 5)
+females_5plus_siblings</code></pre>
+<pre><code>##    Respondent    Sex FathersOccupation PersonsAtHome SiblingsAtSchool
+## 1           1 Female            Farmer             5                6
+## 7           7 Female            Others             6                5
+## 13         13 Female            Farmer             4                5
+## 14         14 Female            Others             7                5
+## 18         18 Female            Farmer            11                5
+##     TypeOfHouses
+## 1           Wood
+## 7       Concrete
+## 13 Semi-Concrete
+## 14 Semi-Concrete
+## 18      Concrete</code></pre>
 <p><strong>Question #2:</strong></p>
 <ul>
-<li><p>When you sorted scores, did the names stay correctly attached to
-their original values?</p></li>
-<li><p>Explain why this matters: if you were sorting exam scores to find
-the top performer, what would go wrong if the names did NOT follow their
-values?</p></li>
+<li>Before running data.frame(), you were asked to check that all six
+vectors had the same length. Why is this check necessary specifically
+for survey data like this, where every column represents an answer from
+the SAME 20 respondents?</li>
 </ul>
-<p><strong>Answer:</strong> Yes, the names stayed stuck to the right
-scores after sorting. Thats important because if the names got mixed up,
-youd end up thinking the wrong person got the highest score and
-completely mess up who the top performer actually is.</p>
+<p><strong>Answer:</strong> You need to check that a six vectors are the
+same length before making the data frame because each row stands for one
+of the same 20 respondents. If the lengths dont match, the answers get
+misaligned and no longer belong to the right people.</p>
 <p><strong>Question #3:</strong></p>
 <ul>
-<li><p>By default, sort() silently removes NA values instead of showing
-them or throwing an error.</p></li>
-<li><p>Why might this default behavior be dangerous if you were
-reporting “the lowest score” in a dataset with missing data, without
-first checking for NA values?.</p></li>
+<li>All five survey variables (Sex through TypesOfHouses) are stored as
+plain numbers (1, 2, 3, …), but they don’t all mean the same kind of
+thing. Looking at the legend, which of these columns are categories
+being represented by numbers (nominal data), and which are actual counts
+(e.g., a count of people)? Explain why treating a category like Sex as
+if it were a quantity to average would be misleading.</li>
 </ul>
-<p><strong>Answer:</strong> Sort just quietly drops the NAs, which can
-be risky. If youre trying to report the lowest score and dont check for
-missing data first, you might give an answer based only on the complete
-scores and never realize some values are missing, so the “lowest” number
-you report could be incomplete or misleading.</p>
+<p><strong>Answer:</strong> Sex and TypesOfHouses are just categories
+coded as numbers (nominal data), while any true counts are actual
+quantities. Averaging something like sex is misleading because the
+numbers are only labels-theres no real meaning to an “average sex” of
+1.4.</p>
 <p><strong>Question #4:</strong></p>
 <ul>
-<li>Use order(scores) and print the result. Compare this output to the
-sort(scores) output. What is the difference?</li>
+<li><p>In subset-logical, if you filter on Sex == 1 using the raw
+numeric code rather than the word “Male”.</p></li>
+<li><p>Looking at the result, how could someone unfamiliar with the
+legend misinterpret this output?</p></li>
+<li><p>What problem does this illustrate about working with coded data
+before it has been labeled?</p></li>
 </ul>
-<pre class="r"><code>order(scores) </code></pre>
-<pre><code>## [1] 5 7 1 3 6 2 4</code></pre>
-<p><strong>Answer:</strong> order(scores) just gives you the positions
-that would put the scores in order, while sort(scores) actually gives
-you the sorted values. Theyre different outputs—one is indexes, the
-other is the numbers themselves.</p>
-<ol style="list-style-type: lower-alpha">
-<li>Use the result of order(scores) to index scores itself: # Compare
-this to sort(scores) – they should produce the same values.</li>
-</ol>
-<ul>
-<li>Do they have the same values? Explain briefly.</li>
-</ul>
-<p><strong>Answer:</strong> When you do scores[order(scores)], you get
-the exact same values as sort(scores). Yes, theyre the same because
-using the order indexes to pull from the original vector is basically
-how sort works under the hood.</p>
+<p><strong>Answer:</strong> Filtering with Sex == 1 works on the raw
+code, but someone who doesnt know the legend could easily misread what 1
+means. It shows why coded data is risky to use before you attach clear
+labels-without the key, the numbers are easy to misinterpret.</p>
 <p><strong>Question #5:</strong></p>
 <ul>
-<li><p>Create a dataframe from these vectors name = c(“Ana”, “Ben”,
-“Cid”, “Dex”, “Eli”, “Fay”, “Gio”) score = c(78, 92, 85, 92, 67, 88, 74)
-section = c(“A”, “B”, “A”, “B”, “A”, “B”, “A”)</p></li>
-<li><p>What is the output?</p></li>
+<li>Out of 20 respondents, how many are Male (Sex == 1)? Compute this
+using nrow() on your filtered result from subset-logical or
+sum(survey$Sex == 1). Does this small sample size change how confident
+you would be generalizing any pattern you find in this dataset to a
+larger population? Explain your reasoning.</li>
 </ul>
-<pre class="r"><code>name &lt;- c(&quot;Ana&quot;, &quot;Ben&quot;, &quot;Cid&quot;, &quot;Dex&quot;, &quot;Eli&quot;, &quot;Fay&quot;, &quot;Gio&quot;)
-score &lt;- c(78, 92, 85, 92, 67, 88, 74)
-section &lt;- c(&quot;A&quot;, &quot;B&quot;, &quot;A&quot;, &quot;B&quot;, &quot;A&quot;, &quot;B&quot;, &quot;A&quot;)
-
-students &lt;- data.frame(name, score, section)
-students</code></pre>
-<pre><code>##   name score section
-## 1  Ana    78       A
-## 2  Ben    92       B
-## 3  Cid    85       A
-## 4  Dex    92       B
-## 5  Eli    67       A
-## 6  Fay    88       B
-## 7  Gio    74       A</code></pre>
-<ol style="list-style-type: lower-alpha">
-<li>Reorder the ENTIRE students data frame by score using
-students[order(students$score), ] What is the output?</li>
-</ol>
-<pre class="r"><code>students[order(students$score), ]</code></pre>
-<pre><code>##   name score section
-## 5  Eli    67       A
-## 7  Gio    74       A
-## 1  Ana    78       A
-## 3  Cid    85       A
-## 6  Fay    88       B
-## 2  Ben    92       B
-## 4  Dex    92       B</code></pre>
-<ol start="2" style="list-style-type: lower-alpha">
-<li>Reorder students by score in DESCENDING order.</li>
-</ol>
-<pre class="r"><code>students[order(students$score, decreasing = TRUE), ]</code></pre>
-<pre><code>##   name score section
-## 2  Ben    92       B
-## 4  Dex    92       B
-## 6  Fay    88       B
-## 3  Cid    85       A
-## 1  Ana    78       A
-## 7  Gio    74       A
-## 5  Eli    67       A</code></pre>
+<p><strong>Answer:</strong> Use nrow() on the filtered data or
+sum(survey$Sex == 1) to count how many are Male. With only 20
+respondents the same is tiny, so any patterns you see could easily be
+chance and shouldnt be confidently generalized to a bigger
+population.</p>
 <p><strong>Question #6:</strong></p>
 <ul>
-<li><p>sort(scores) and scores[order(scores)] produce the same final
-values, but they work completely differently under the hood.</p></li>
-<li><p>In your own words, explain what order(scores) actually returns
-(look at the raw numbers it gives you), and why that output is useless
-on its own unless you use it to index something.</p></li>
+<li><p>Run summary(). Every column shows numeric summary statistics
+(min, mean, max, etc.) – including Sex and TypesOfHouses, which are
+really categories, not quantities.</p></li>
+<li><p>Explain why R doesn’t know, by itself, that these columns are
+categorical, and what this tells you about the difference between how
+data is stored versus what it means.</p></li>
 </ul>
-<p><strong>Answer:</strong> order(scores) doesnt give you the sorted
-scores. It just returns a bunch of raw index numbers (like 5, 7, 1, 3…)
-that show the positions of the values in sorted order. Those numbers are
-pretty much useless by themselves — they only become useful when you use
-them to pull the actual values out of the original vector or data frame
-(like scores[order(scores)]).</p>
+<p><strong>Answer:</strong> R treats Sex and TypesOfHouses like numbers
+in summary() because thats how theyre stored. It has no idea theyre
+actually categories, which shows the gap between the raw storage and
+what the data really means.</p>
 <p><strong>Question #7:</strong></p>
 <ul>
-<li><p>Explain why sort() alone could NOT have been used to reorder the
-whole students data frame by score (try to imagine running
-sort(students) and think about what “sorting a table” would even
-mean).</p></li>
-<li><p>Why is order() the correct tool whenever you need to keep
-multiple related columns lined up with each other?</p></li>
+<li>Compare the mean of PersonsAtHome to the mean of Sex in your summary
+output. Which of these two means is actually meaningful to report to
+someone, and which one is not? Justify your answer.</li>
 </ul>
-<p><strong>Answer:</strong></p>
-<ul>
-<li><p>You cant use sort() alone to reorder the whole students data
-frame because it only works on a single vector. Trying sort(students)
-wouldnt make sense — R has no idea which column to sort by or how to
-keep the other columns matched up with the right rows.</p></li>
-<li><p>order() is the right tool when you need multiple related columns
-to stay lined up. It gives you the correct row indexes, and using those
-indexes on the entire data frame moves every column together so nothing
-gets mismatched.</p></li>
-</ul>
-<p><strong>Question #8:</strong></p>
-<pre class="r"><code># TODO: Use rank(scores) and print the result. 
-# Print scores, then rank(scores), side by side (e.g., using
-# cbind(scores, rank(scores))) so you can see which score got which rank
-
-cbind(scores, rank(scores))</code></pre>
-<pre><code>##     scores    
-## Ana     78 3.0
-## Ben     92 6.5
-## Cid     85 4.0
-## Dex     92 6.5
-## Eli     67 1.0
-## Fay     88 5.0
-## Gio     74 2.0</code></pre>
-<ol style="list-style-type: lower-alpha">
-<li>Ranking the output for Ben and Dex</li>
-</ol>
-<pre class="r"><code># TODO: Look at the rank() output for Ben and Dex.
-
-rank(scores)</code></pre>
-<pre><code>## Ana Ben Cid Dex Eli Fay Gio 
-## 3.0 6.5 4.0 6.5 1.0 5.0 2.0</code></pre>
-<ul>
-<li>What rank did each of them receive?</li>
-</ul>
-<p><strong>Answer:</strong> Ben and Dex both received the rank 6.5.</p>
-<ol start="2" style="list-style-type: lower-alpha">
-<li>Ben and Dex both scored 92, the highest score in the class, but
-under the default rank() they did NOT both simply get rank “1” or rank
-“7” as a whole number. Explain exactly what value they received by
-default and why R computes it that way for tied values.</li>
-</ol>
-<p><strong>Answer:</strong> Ben and Dex both got 92, the highest score,
-but rank() didnt give them a plain 1 or 7. By default it averages the
-ranks for ties, so since those two scores would have taken positions 6
-and 7, each one gets the average: 6.5.</p>
-<p><strong>Question #8:</strong></p>
-<ol style="list-style-type: lower-alpha">
-<li>Create a dataframe.</li>
-</ol>
-<p>sales &lt;- data.frame( employee = c(“Rey”, “Sam”, “Tin”, “Uma”,
-“Val”), units_sold = c(120, 145, 145, 98, 130)</p>
-<ul>
-<li>Add a column sales$rank that ranks employees by units_sold, with the
-TOP seller receiving rank 1.</li>
-</ul>
-<pre class="r"><code>sales &lt;- data.frame(
-  employee = c(&quot;Rey&quot;, &quot;Sam&quot;, &quot;Tin&quot;, &quot;Uma&quot;, &quot;Val&quot;), 
-  units_sold = c(120, 145, 145, 98, 130)
-)
-
-sales$rank &lt;- rank(-sales$units_sold)
-sales</code></pre>
-<pre><code>##   employee units_sold rank
-## 1      Rey        120  4.0
-## 2      Sam        145  1.5
-## 3      Tin        145  1.5
-## 4      Uma         98  5.0
-## 5      Val        130  3.0</code></pre>
-<ol start="2" style="list-style-type: lower-alpha">
-<li>Reorder the entire sales data frame using order() so it is displayed
-from HIGHEST units_sold to LOWEST.</li>
-</ol>
-<pre class="r"><code>sales[order(sales$units_sold, decreasing = TRUE), ]</code></pre>
-<pre><code>##   employee units_sold rank
-## 2      Sam        145  1.5
-## 3      Tin        145  1.5
-## 5      Val        130  3.0
-## 1      Rey        120  4.0
-## 4      Uma         98  5.0</code></pre>
-<p><strong>Question #9:</strong></p>
-<ul>
-<li><p>In this challenge, you used rank() to determine standing and
-order() to determine display order.</p></li>
-<li><p>Could you have used order() alone to solve the entire problem
-(both awarding ranks AND reordering the table)?</p></li>
-<li><p>Explain what order() is missing that rank() provides, using your
-own words rather than repeating the definitions</p></li>
-</ul>
-<p><strong>Answer:</strong> No, you couldnt solve the whole thing with
-just order(). Its perfect for rearranging the rows so the table shows
-highest to lowest, but it only gives you the positions to sort by. It
-doesnt actually create the ranking numbers (like 1 for the top seller, 2
-for the next, etc.). Thats the part rank() gives you — the actual
-standing values you can put in a column.</p>
+<p><strong>Answer:</strong> The mean of PersonsAtHome makes sense
+because its a real count. The mean of Sex doesnt-its just category
+codes, so averaging them gives a meaningless number.</p>
+</div>
 
 
 

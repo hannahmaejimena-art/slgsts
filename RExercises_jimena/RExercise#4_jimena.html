@@ -11,9 +11,9 @@
 
 <meta name="author" content="Hannah Mae T. Jimena" />
 
-<meta name="date" content="2026-11-07" />
+<meta name="date" content="2026-11-06" />
 
-<title>RExercise#5_jimena</title>
+<title>R Lab: Data Structures - Vectors and Lists</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -350,374 +350,190 @@ display: none;
 
 
 
-<h1 class="title toc-ignore">RExercise#5_jimena</h1>
+<h1 class="title toc-ignore">R Lab: Data Structures - Vectors and
+Lists</h1>
 <h4 class="author">Hannah Mae T. Jimena</h4>
-<h4 class="date">2026-11-07</h4>
+<h4 class="date">2026-11-06</h4>
 
 </div>
 
 
-<p><strong>R Lab: Data Structures - Matrix and Array</strong></p>
-<p>Hannah Mae T. Jimena</p>
-<div id="part-a-creating-matrices" class="section level2">
-<h2>Part A — Creating Matrices</h2>
-<pre class="r"><code># TODO: Create a 3x3 matrix called m1 containing the numbers 1 to 9,
-# using matrix(1:9, nrow = 3, ncol = 3)
-# Print m1
-
-m1 &lt;- matrix(1:9, nrow = 3, ncol = 3)
-print(m1)</code></pre>
-<pre><code>##      [,1] [,2] [,3]
-## [1,]    1    4    7
-## [2,]    2    5    8
-## [3,]    3    6    9</code></pre>
-<pre class="r"><code># TODO: Create a second 3x3 matrix called m2 with the SAME numbers 1:9,
-# but this time add the argument byrow = TRUE
-# Print m2 and compare it to m1
-
-m2 &lt;- matrix(1:9, nrow = 3, ncol = 3, byrow = TRUE)
-print(m2)</code></pre>
-<pre><code>##      [,1] [,2] [,3]
-## [1,]    1    2    3
-## [2,]    4    5    6
-## [3,]    7    8    9</code></pre>
-<pre class="r"><code>scores &lt;- matrix(c(88, 92, 79, 95, 84, 90), nrow = 2, ncol = 3, byrow = TRUE)
-rownames(scores) &lt;- c(&quot;Quiz1&quot;, &quot;Quiz2&quot;)
-colnames(scores) &lt;- c(&quot;Ana&quot;, &quot;Ben&quot;, &quot;Cid&quot;)
-
-# TODO: Print scores and confirm the row/column names were applied
-
-print(scores)</code></pre>
-<pre><code>##       Ana Ben Cid
-## Quiz1  88  92  79
-## Quiz2  95  84  90</code></pre>
+<div id="part-a-creating-vectors-and-list" class="section level2">
+<h2>Part A — Creating Vectors and List:</h2>
 <p><strong>Question #1:</strong></p>
+<p>A factory has a census of its workers. There are 50 workers in total.
+The following list shows their ages: `34, 28, 22, 36, 27, 18, 52, 39,
+42, 29, 35, 31, 27, 22, 37, 34, 19, 20, 57, 49, 50, 37, 46, 25, 17, 37,
+43, 53, 41, 51, 35, 24,33, 41, 53, 40, 18, 44, 38, 41, 48, 27, 39, 19,
+30, 61, 54, 58, 26, 18.</p>
+<ol style="list-style-type: lower-alpha">
+<li>Create a vector for the worker’s age.</li>
+</ol>
+<pre class="r"><code>worker_age &lt;- c(34, 28, 22, 36, 27, 18, 52, 39, 42, 29, 35, 31, 27, 22, 37, 34, 19, 20, 57, 49, 50, 37, 46, 25, 17, 37, 43, 53, 41, 51, 35, 24,33, 41, 53, 40, 18, 44, 38, 41, 48, 27, 39, 19, 30, 61, 54, 58, 26, 18)</code></pre>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>How many data points?</li>
+</ol>
+<pre class="r"><code>length(worker_age)</code></pre>
+<pre><code>## [1] 50</code></pre>
+<ol start="3" style="list-style-type: lower-alpha">
+<li>Find the minimum and the maximum value of worker’s age.</li>
+</ol>
+<pre class="r"><code>min(worker_age)</code></pre>
+<pre><code>## [1] 17</code></pre>
+<pre class="r"><code>max(worker_age)</code></pre>
+<pre><code>## [1] 61</code></pre>
+<ol start="4" style="list-style-type: lower-alpha">
+<li>Access the 13rd to 18th elements and 33th to 35th elements of
+worker’s Age.</li>
+</ol>
+<pre class="r"><code>worker_age[13:18]</code></pre>
+<pre><code>## [1] 27 22 37 34 19 20</code></pre>
+<pre class="r"><code>worker_age[33:35]</code></pre>
+<pre><code>## [1] 33 41 53</code></pre>
+<ol start="5" style="list-style-type: lower-alpha">
+<li>Access all but the 10th, 20th, 30th and 40th elements are not
+included.</li>
+</ol>
+<pre class="r"><code>worker_age[-c(10, 20, 30, 40)]</code></pre>
+<pre><code>##  [1] 34 28 22 36 27 18 52 39 42 35 31 27 22 37 34 19 20 57 50 37 46 25 17 37 43
+## [26] 53 41 35 24 33 41 53 40 18 44 38 48 27 39 19 30 61 54 58 26 18</code></pre>
+<ol start="6" style="list-style-type: lower-alpha">
+<li>Modify the 4th, 14th, 24th, and 44th elements with value = 0.</li>
+</ol>
+<pre class="r"><code>worker_age[-c(4, 14, 24, 44)] &lt;- 0</code></pre>
+<p><strong>Question #2:</strong></p>
 <ul>
-<li><p>Compare m1 and m2 above. Both were built from 1:9 with nrow = 3,
-ncol = 3, but they look different.</p></li>
-<li><p>Explain exactly what byrow = TRUE changes about how R fills a
-matrix.</p></li>
+<li><p>R has actually lots of built-in datasets.</p></li>
+<li><p>For example, the rivers data “gives the lengths (in miles) of 141
+“major” rivers in North America, as compiled by the US Geological
+Survey”.</p></li>
+<li><p>Use data(rivers)</p></li>
 </ul>
-<p><strong>Answer: </strong></p>
+<ol style="list-style-type: lower-alpha">
+<li>Get the number of elements (length) in rivers, their sum (sum), mean
+(mean), median(median), variance(var), standard deviation(sd), minimum
+(min) and maximum (max).</li>
+</ol>
+<pre class="r"><code>data(rivers)
+
+length(rivers)</code></pre>
+<pre><code>## [1] 141</code></pre>
+<pre class="r"><code>sum(rivers)</code></pre>
+<pre><code>## [1] 83357</code></pre>
+<pre class="r"><code>mean(rivers)</code></pre>
+<pre><code>## [1] 591.1844</code></pre>
+<pre class="r"><code>median(rivers)</code></pre>
+<pre><code>## [1] 425</code></pre>
+<pre class="r"><code>var(rivers)</code></pre>
+<pre><code>## [1] 243908.4</code></pre>
+<pre class="r"><code>sd(rivers)</code></pre>
+<pre><code>## [1] 493.8708</code></pre>
+<pre class="r"><code>min(rivers)</code></pre>
+<pre><code>## [1] 135</code></pre>
+<pre class="r"><code>max(rivers)</code></pre>
+<pre><code>## [1] 3710</code></pre>
+<p>b.What is the result? The derived result must be in just one(1)
+vector name.</p>
+<pre class="r"><code>result &lt;- c(
+  length = length(rivers),
+  sum = sum(rivers),
+  mean = mean(rivers),
+  median = median(rivers),
+  var = var(rivers),
+  sd = sd(rivers),
+  min = min(rivers),
+  max = max(rivers)
+)
+result</code></pre>
+<pre><code>##      length         sum        mean      median         var          sd 
+##    141.0000  83357.0000    591.1844    425.0000 243908.4086    493.8708 
+##         min         max 
+##    135.0000   3710.0000</code></pre>
+<p><strong>Question #3:</strong></p>
 <ul>
-<li><p>The difference between m1 and m1 even though they use the same
-numbers (1:9) and same size (3 x 3) is because of the filling
-order.</p></li>
-<li><p>byrow = TRUE changes the direction in which the values are paced
-into the matrix. It went from going down each column to going across
-each row.</p></li>
+<li>The table below gives the 25 most powerful celebrities and their
+annual pay as ranked by the editions of Forbes magazine and as listed on
+the Forbes.com website.</li>
 </ul>
-<p><strong>Question #2</strong></p>
+<p>Forbes Ranking</p>
+<ol style="list-style-type: lower-alpha">
+<li>Create vectors according to the above table.</li>
+</ol>
+<pre class="r"><code>Power &lt;- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25)
+Celebrity &lt;- c(
+  &quot;Tom Cruise&quot;, &quot;Rolling Stones&quot;, &quot;Oprah Winfrey&quot;, &quot;U2&quot;, &quot;Tiger Woods&quot;,
+  &quot;Steven Spielberg&quot;, &quot;Howard Stern&quot;, &quot;50 Cent&quot;, &quot;Cast of the Sopranos&quot;, &quot;Dan Brown&quot;,
+  &quot;Bruce Springsteen&quot;, &quot;Donald Trump&quot;, &quot;Muhammad Ali&quot;, &quot;Paul McCartney&quot;, &quot;George Lucas&quot;,
+  &quot;Elton John&quot;, &quot;David Letterman&quot;, &quot;Phil Mickelson&quot;, &quot;J.K. Rowling&quot;, &quot;Brad Pitt&quot;,
+  &quot;Peter Jackson&quot;, &quot;Dr. Phil McGraw&quot;, &quot;Jay Leno&quot;, &quot;Celine Dion&quot;, &quot;Kobe Bryant&quot;
+)
+Pay &lt;- c(67, 90, 225, 110, 90, 332, 302, 41, 52, 88, 55, 44, 55, 40, 233, 34, 40, 47, 75, 25, 39, 45, 32, 40, 31)</code></pre>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>Modify the power ranking and pay of J.K. Rowling. Change power
+ranking to 15 and pay to 90.</li>
+</ol>
+<pre class="r"><code>Power[19] &lt;- 15
+Pay[19] &lt;- 90</code></pre>
+<pre class="r"><code>data.frame(Power, Celebrity, Pay)</code></pre>
+<pre><code>##    Power            Celebrity Pay
+## 1      1           Tom Cruise  67
+## 2      2       Rolling Stones  90
+## 3      3        Oprah Winfrey 225
+## 4      4                   U2 110
+## 5      5          Tiger Woods  90
+## 6      6     Steven Spielberg 332
+## 7      7         Howard Stern 302
+## 8      8              50 Cent  41
+## 9      9 Cast of the Sopranos  52
+## 10    10            Dan Brown  88
+## 11    11    Bruce Springsteen  55
+## 12    12         Donald Trump  44
+## 13    13         Muhammad Ali  55
+## 14    14       Paul McCartney  40
+## 15    15         George Lucas 233
+## 16    16           Elton John  34
+## 17    17      David Letterman  40
+## 18    18       Phil Mickelson  47
+## 19    15         J.K. Rowling  90
+## 20    20            Brad Pitt  25
+## 21    21        Peter Jackson  39
+## 22    22      Dr. Phil McGraw  45
+## 23    23             Jay Leno  32
+## 24    24          Celine Dion  40
+## 25    25          Kobe Bryant  31</code></pre>
+<p><strong>Question #4:</strong></p>
 <ul>
-<li><p>If you tried matrix(1:8, nrow = 3, ncol = 3) (only 8 numbers for
-9 slots), what do you think would happen?</p></li>
-<li><p>Test it and explain the result, including any warning
-message.</p></li>
+<li>Create a list of ten (10) vegetables you ate during your lifetime.
+If none, just list down the vegetables in your mind.</li>
 </ul>
-<pre class="r"><code>matrix(1:8, nrow = 3, ncol = 3)</code></pre>
-<pre><code>## Warning in matrix(1:8, nrow = 3, ncol = 3): data length [8] is not a
-## sub-multiple or multiple of the number of rows [3]</code></pre>
-<pre><code>##      [,1] [,2] [,3]
-## [1,]    1    4    7
-## [2,]    2    5    8
-## [3,]    3    6    1</code></pre>
-<p><strong>Answer:</strong> If you try matrix(1:8, nrow = 3, ncol = 3) R
-still makes a 3x3 matrix even though there are only 8 numbers. You also
-get a warning that says the data length is not a multiple of the numbers
-of rows.</p>
-</div>
-<div id="part-b-subsetting-matrices" class="section level2">
-<h2>Part B — Subsetting Matrices</h2>
-<pre class="r"><code># Using scores from Part A:
-
-# TODO: Access the single value in row 1, column 2 using scores[1, 2]
-
-# TODO: Access the entire first row using scores[1, ]
-
-# TODO: Access the entire &quot;Ben&quot; column using scores[, &quot;Ben&quot;]
-
-scores[1, 2]</code></pre>
-<pre><code>## [1] 92</code></pre>
-<pre class="r"><code>scores[1, ]</code></pre>
-<pre><code>## Ana Ben Cid 
-##  88  92  79</code></pre>
-<pre class="r"><code>scores[, &quot;Ben&quot;]</code></pre>
-<pre><code>## Quiz1 Quiz2 
-##    92    84</code></pre>
-<pre class="r"><code># TODO: Return only the values in scores that are greater than or equal
-# to 90 (hint: scores[scores &gt;= 90] -- note the result loses its shape)
-
-scores[, &quot;Ben&quot;]</code></pre>
-<pre><code>## Quiz1 Quiz2 
-##    92    84</code></pre>
-<pre class="r"><code>scores[scores &gt;= 90]</code></pre>
-<pre><code>## [1] 95 92 90</code></pre>
-<p><strong>Question #3</strong></p>
-<ul>
-<li><p>scores[1, ] and scores[, “Ben”] both return a result, but one
-represents a row and the other a column.</p></li>
-<li><p>Run class() on each result. What data structure does R
-“downgrade” a single row/column of a matrix to, and why do you think R
-does this automatically?</p></li>
-</ul>
-<pre class="r"><code>class(scores[1, ])</code></pre>
-<pre><code>## [1] &quot;numeric&quot;</code></pre>
-<pre class="r"><code>class(scores[, &quot;Ben&quot;])</code></pre>
-<pre><code>## [1] &quot;numeric&quot;</code></pre>
-<p><strong>Answer:</strong> Both results are “numeric” So R
-automatically “downgrades” a single row or single column a matrix into a
-plain vector its simpler and more useful to treat it as a regular vector
-because you only have one dimension left instead of keeping it as a
-1-row r 1-column matrix.</p>
-<p><strong>Question #4</strong></p>
-<ul>
-<li>In the matrix-logical chunk, the row/column names disappeared from
-your result. * Why does subsetting with a logical condition (scores
-&gt;= 90) lose the 2D shape and names thatscores[1, ] kept?</li>
-</ul>
-<p><strong>Answer:</strong> When i d scores[scores &gt;= 90], the row
-and column names disappeared and the result is just a lain list of
-numbers. This happens because logical subsetting like this pulls out the
-matching values one by one, R no longer keeps the original matrix
-structure, it just returns a regular vector of the numbers that met the
-condition.</p>
-</div>
-<div id="part-c-matrix-properties-and-operations" class="section level2">
-<h2>Part C — Matrix Properties and Operations</h2>
-<pre class="r"><code># TODO: Use dim(), nrow(), and ncol() on scores to report its dimensions
-
-dim(scores)</code></pre>
-<pre><code>## [1] 2 3</code></pre>
-<pre class="r"><code>nrow(scores)</code></pre>
-<pre><code>## [1] 2</code></pre>
-<pre class="r"><code>ncol(scores)</code></pre>
-<pre><code>## [1] 3</code></pre>
-<pre class="r"><code># TODO: Use t() to transpose scores and store it as scores_t
-# Print scores_t and compare its dimensions to scores using dim()
-
-scores_t &lt;- (scores)
-print(scores_t)</code></pre>
-<pre><code>##       Ana Ben Cid
-## Quiz1  88  92  79
-## Quiz2  95  84  90</code></pre>
-<pre class="r"><code>dim(scores)</code></pre>
-<pre><code>## [1] 2 3</code></pre>
-<pre class="r"><code>dim(scores_t)</code></pre>
-<pre><code>## [1] 2 3</code></pre>
-<pre class="r"><code>a &lt;- matrix(1:4, nrow = 2)
-b &lt;- matrix(5:8, nrow = 2)
-
-# TODO: Add a and b element-wise (a + b)
-# TODO: Multiply a and b element-wise (a * b)
-
-a + b</code></pre>
-<pre><code>##      [,1] [,2]
-## [1,]    6   10
-## [2,]    8   12</code></pre>
-<pre class="r"><code>a * b</code></pre>
-<pre><code>##      [,1] [,2]
-## [1,]    5   21
-## [2,]   12   32</code></pre>
-<pre class="r"><code># TODO: Perform true matrix multiplication of a and b using %*%
-# Compare this result to a * b above -- they should be different
-
-a %% b</code></pre>
-<pre><code>##      [,1] [,2]
-## [1,]    1    3
-## [2,]    2    4</code></pre>
-<p><strong>Question #5</strong></p>
-<ul>
-<li><p>a * b and a %*% b both “multiply” the same two matrices but give
-different results.</p></li>
-<li><p>Explain the difference between element-wise multiplication and
-matrix multiplication in your own words.</p></li>
-</ul>
-<p><strong>Answer:</strong> a * b multiplies the number in the same
-positions while a %% b does real matrix multiplication s thats why the
-results are different.</p>
-<p><strong>Question #6</strong></p>
-<ul>
-<li><p>t(scores) swaps rows and columns. Look at dim(scores) versus
-dim(scores_t).</p></li>
-<li><p>Why must the row/column names also swap positions when you
-transpose a matrix?</p></li>
-</ul>
-<p><strong>Answer:</strong> Transposing swaps the rows and column, so
-the dimensions change (2x3 becomes 3x2). The names as have to swap so
-they stay matched to the correct data.</p>
-</div>
-<div id="part-d-cbind-and-rbind" class="section level2">
-<h2>Part D — cbind() and rbind()</h2>
-<pre class="r"><code># TODO: A new student &quot;Dex&quot; scored 85 on Quiz1 and 91 on Quiz2.
-# Use cbind() to add a new column to scores called Dex with
-# these two values. Store the result as scores_v2 and print it.
-
-scores_v2 &lt;- cbind(scores, Dex = c(85, 91))
-print(scores_v2)</code></pre>
-<pre><code>##       Ana Ben Cid Dex
-## Quiz1  88  92  79  85
-## Quiz2  95  84  90  91</code></pre>
-<pre class="r"><code># TODO: A new quiz &quot;Quiz3&quot; was given with scores 80, 88, 93 for
-# Ana, Ben, Cid (use only the original 3 students, not Dex).
-# Use rbind() to add this as a new row to scores. Store as scores_v3
-# and print it.
-
-scores_v3 &lt;- rbind(scores, Quiz3 = c(80, 88, 93))
-print(scores_v3)</code></pre>
-<pre><code>##       Ana Ben Cid
-## Quiz1  88  92  79
-## Quiz2  95  84  90
-## Quiz3  80  88  93</code></pre>
-<p><strong>Question #7</strong></p>
-<ul>
-<li>What would happen if you tried cbind(scores, c(85, 91, 100)) —
-giving 3 values for a matrix that only has 2 rows? * Test it, read the
-warning/error, and explain why cbind() and rbind()) require matching
-dimensions.</li>
-</ul>
-<p><strong>Answer:</strong></p>
-<ul>
-<li><p>If you try cbind(scores, c(85, 91, 100)), R gives an error
-because the new vector has 3 values but the matrix only has 2 rows, so
-the sizes dont match.</p></li>
-<li><p>cbind() and rbind() need the size to match because they have to
-line the new data u with the existing rows or columns. If the dimensions
-dont match, R cant line the data in the right aces and just gives an
-error.</p></li>
-</ul>
-<p><strong>Question #8</strong></p>
-<ul>
-<li>In what situation would you use rbind() instead of cbind() when
-updating a dataset over time? Give a concrete example (e.g., daily
-sales, weekly attendance) and explain your reasoning.</li>
-</ul>
-<p><strong>Answer:</strong></p>
-<ul>
-<li><p>For example, say you track daily sales for a few products. Every
-day you get a new set of sales numbers. Since each day is a new record
-(a new row), you use rbind() to add that day’s data at the bottom of the
-table.</p></li>
-<li><p>You choose rbind() instead of cbind() because you’re adding
-another observation, not a new variable.</p></li>
-</ul>
-</div>
-<div id="part-e-arrays-creating-and-subsetting" class="section level2">
-<h2>Part E — Arrays: Creating and Subsetting</h2>
-<pre class="r"><code># TODO: Create a 2x3x2 array called arr using:
-# array(1:12, dim = c(2, 3, 2))
-# Print arr and observe how it displays as two separate 2x3 &quot;slices
-
-arr &lt;- array(1:12, dim = c(2, 3, 2))
-print(arr)</code></pre>
-<pre><code>## , , 1
-## 
-##      [,1] [,2] [,3]
-## [1,]    1    3    5
-## [2,]    2    4    6
-## 
-## , , 2
-## 
-##      [,1] [,2] [,3]
-## [1,]    7    9   11
-## [2,]    8   10   12</code></pre>
-<pre class="r"><code># TODO: Access the element in row 1, column 2, of the SECOND layer
-# (slice) of arr, e.g. arr[1, 2, 2]
-
-# TODO: Access the entire first layer (slice) of arr using arr[ , , 1]
-
-arr[1, 2, 2]</code></pre>
-<pre><code>## [1] 9</code></pre>
-<pre class="r"><code>arr[, , 1]</code></pre>
-<pre><code>##      [,1] [,2] [,3]
-## [1,]    1    3    5
-## [2,]    2    4    6</code></pre>
-<pre class="r"><code># TODO: Use dim() on arr to confirm its dimensions
-
-dim(arr)</code></pre>
-<pre><code>## [1] 2 3 2</code></pre>
-<p><strong>Question #9</strong></p>
-<ul>
-<li><p>A matrix needs 2 indices (scores[row, col]) but an array needs 3
-(arr[row, col, layer]).</p></li>
-<li><p>Using dim(arr), explain in your own words what each of the three
-numbers represents.</p></li>
-</ul>
-<p><strong>Answer:</strong></p>
-<ul>
-<li><p>First number (2) = number of rows</p></li>
-<li><p>Second number (3) = number of columns</p></li>
-<li><p>Third number (2) = number of layers (or slices)</p></li>
-</ul>
-<p><strong>Question #10</strong></p>
-<ul>
-<li><p>Give a real-world example of data that would naturally fit a 3D
-array structure (hint: think of something that has rows, columns, AND a
-third repeating dimension like time, subjects, or categories).</p></li>
-<li><p>Explain why a single 2D matrix would not be enough.</p></li>
-</ul>
-<p><strong>Answer:</strong></p>
-<ul>
-<li><p>A good example is temperature readings for several cities over
-many days, measured at different times of the day.</p></li>
-<li><p>A normal 2D matrix wouldn’t be enough because you need three
-pieces of information at once: city, day, and time of day.</p></li>
-</ul>
-</div>
-<div id="part-f-critical-thinking-challenge" class="section level2">
-<h2>Part F — Critical Thinking Challenge</h2>
-<pre class="r"><code>class_a &lt;- matrix(c(85, 90, 78, 92), nrow = 2, byrow = TRUE,
-                   dimnames = list(c(&quot;S1&quot;, &quot;S2&quot;), c(&quot;Midterm&quot;, &quot;Final&quot;)))
-class_b &lt;- matrix(c(88, 84, 95, 91), nrow = 2, byrow = TRUE,
-                   dimnames = list(c(&quot;S3&quot;, &quot;S4&quot;), c(&quot;Midterm&quot;, &quot;Final&quot;)))
-
-# TODO: Combine class_a and class_b into one matrix called all_students
-# using the correct bind function (think about whether these represent
-# new STUDENTS or new SCORE COLUMNS before choosing cbind or rbind)
-
-all_students &lt;- rbind(class_a, class_b)
-print(all_students)</code></pre>
-<pre><code>##    Midterm Final
-## S1      85    90
-## S2      78    92
-## S3      88    84
-## S4      95    91</code></pre>
-<pre class="r"><code># TODO: From all_students, compute each student&#39;s average score across
-# Midterm and Final. Hint: rowMeans(all_students) does this in one line.
-
-rowMeans(all_students)</code></pre>
-<pre><code>##   S1   S2   S3   S4 
-## 87.5 85.0 86.0 93.0</code></pre>
-<p><strong>Question #11</strong></p>
-<ul>
-<li><p>Explain WHY you chose cbind() or rbind() in challenge-1.</p></li>
-<li><p>What clue in the data (shared row names vs. shared column names)
-told you which function was correct?</p></li>
-</ul>
-<p><strong>Answer:</strong> I used rbind() because I was adding new
-students. The cue was that both matrices had the same column names.</p>
-<p><strong>Question #12</strong></p>
-<ul>
-<li><p>Suppose instead of 2 classes you had 5 classes, each recorded as
-a separate matrix with the same 2 columns (Midterm, Final).</p></li>
-<li><p>Describe, in plain language (no code required), how you would
-combine all 5 into a single matrix, and how you would check your final
-result is correct using dim().</p></li>
-</ul>
-<p><strong>Answer:</strong> I would stack a 5 matrices with rbind().
-Then Id check with dim() -the final matrix should have more rows but
-still only 2 columns.</p>
-</div>
-<div id="conclusion" class="section level2">
-<h2>Conclusion</h2>
-<p>In 3–4 sentences, summarize the key differences between a matrix and
-an array, and describe a situation where cbind()/rbind() would be useful
-in a real dataset you might work with.</p>
-<p><strong>Answer:</strong> A matrix is two-dimensional with rows and
-columns, while an array can have three or more dimensions, like several
-matrices stacked as layers. cbind() and rbind() are useful when you need
-to grow a dataset over time. For example, if I collect weekly quiz
-scores for the same students, I can use rbind() to add each new week’s
-results as a new row.</p>
+<pre class="r"><code>vegetables &lt;- c(&quot;Cabbage&quot;, &quot;Cucumber&quot;, &quot;Beans&quot;, &quot;Radish&quot;, &quot;Ginger&quot;, &quot;Pepper&quot;, &quot;Squash&quot;, &quot;Carrot&quot;, &quot;Eggplant&quot;, &quot;Potato&quot;)</code></pre>
+<ol style="list-style-type: lower-alpha">
+<li>Add 2 additional vegetables after the last vegetables in the list.
+What is the result?</li>
+</ol>
+<pre class="r"><code>vegetables &lt;- c(vegetables, &quot;Corn&quot;, &quot;Garlic&quot;)
+vegetables</code></pre>
+<pre><code>##  [1] &quot;Cabbage&quot;  &quot;Cucumber&quot; &quot;Beans&quot;    &quot;Radish&quot;   &quot;Ginger&quot;   &quot;Pepper&quot;  
+##  [7] &quot;Squash&quot;   &quot;Carrot&quot;   &quot;Eggplant&quot; &quot;Potato&quot;   &quot;Corn&quot;     &quot;Garlic&quot;</code></pre>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>How many datapoints do you have?</li>
+</ol>
+<pre class="r"><code>length(vegetables)</code></pre>
+<pre><code>## [1] 12</code></pre>
+<ol start="3" style="list-style-type: lower-alpha">
+<li>Add 4 additional vegetables after index 5. What is the result?</li>
+</ol>
+<pre class="r"><code>vegetables &lt;- c(vegetables[1:5], &quot;Broccoli&quot;, &quot;Onions&quot;, &quot;Lettuce&quot;, &quot;Celery&quot;,
+vegetables[6:length(vegetables)])
+vegetables</code></pre>
+<pre><code>##  [1] &quot;Cabbage&quot;  &quot;Cucumber&quot; &quot;Beans&quot;    &quot;Radish&quot;   &quot;Ginger&quot;   &quot;Broccoli&quot;
+##  [7] &quot;Onions&quot;   &quot;Lettuce&quot;  &quot;Celery&quot;   &quot;Pepper&quot;   &quot;Squash&quot;   &quot;Carrot&quot;  
+## [13] &quot;Eggplant&quot; &quot;Potato&quot;   &quot;Corn&quot;     &quot;Garlic&quot;</code></pre>
+<ol start="4" style="list-style-type: lower-alpha">
+<li>How many datapoints does your vegetable list have?</li>
+</ol>
+<pre class="r"><code>length(vegetables)</code></pre>
+<pre><code>## [1] 16</code></pre>
 </div>
 
 

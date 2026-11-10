@@ -11,9 +11,9 @@
 
 <meta name="author" content="Hannah Mae T. Jimena" />
 
-<meta name="date" content="2026-10-21" />
+<meta name="date" content="2026-11-08" />
 
-<title>RExercise#3_jimena</title>
+<title>R Lab: Basic Operations - sort(), rank(), and order()</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -350,339 +350,266 @@ display: none;
 
 
 
-<h1 class="title toc-ignore">RExercise#3_jimena</h1>
+<h1 class="title toc-ignore">R Lab: Basic Operations - sort(), rank(),
+and order()</h1>
 <h4 class="author">Hannah Mae T. Jimena</h4>
-<h4 class="date">2026-10-21</h4>
+<h4 class="date">2026-11-08</h4>
 
 </div>
 
 
-<p><strong>R Lab: Data Structures - Vectors and Lists</strong></p>
-<p>Hannah Mae T. Jimena</p>
-<div id="part-a-creating-vectors-c-seq-rep" class="section level2">
-<h2>Part A — Creating Vectors: c(), seq(), rep()</h2>
-<pre class="r"><code># TODO: Create a numeric vector called scores containing: 88, 92, 79, 95, 84
-# Then create a character vector called subjects containing:
-# &quot;Math&quot;, &quot;Science&quot;, &quot;English&quot;, &quot;History&quot;, &quot;PE&quot;
-
-scores &lt;- c(88, 92, 79, 95, 84)
-subjects &lt;- c(&quot;Math&quot;, &quot;Science&quot;, &quot;English&quot;, &quot;History&quot;, &quot;PE&quot;)</code></pre>
-<pre class="r"><code># TODO: Use seq() to create a vector called odds containing odd numbers
-# from 1 to 19 (hint: use the &quot;by&quot; argument)
-
-# TODO: Use seq() with length.out to create a vector of exactly 5 evenly
-# spaced numbers between 0 and 1
-
-odds &lt;- seq(1, 19, by = 2)
-seq(0, 1, length.out = 5)</code></pre>
-<pre><code>## [1] 0.00 0.25 0.50 0.75 1.00</code></pre>
-<pre class="r"><code># TODO: Use rep() to create a vector that repeats the value &quot;A&quot; 4 times
-
-# TODO: Use rep() with the &quot;each&quot; argument to turn c(&quot;A&quot;, &quot;B&quot;) into
-# &quot;A&quot; &quot;A&quot; &quot;B&quot; &quot;B&quot; (each element repeated twice, in order)
-
-# TODO: Use rep() with the &quot;times&quot; argument to turn c(&quot;A&quot;, &quot;B&quot;) into
-# &quot;A&quot; &quot;B&quot; &quot;A&quot; &quot;B&quot; (the whole sequence repeated twice)
-
-rep(&quot;A&quot;, 4)</code></pre>
-<pre><code>## [1] &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot;</code></pre>
-<pre class="r"><code>rep(c(&quot;A&quot;, &quot;B&quot;), each = 2)</code></pre>
-<pre><code>## [1] &quot;A&quot; &quot;A&quot; &quot;B&quot; &quot;B&quot;</code></pre>
-<pre class="r"><code>rep(c(&quot;A&quot;, &quot;B&quot;), times = 2)</code></pre>
-<pre><code>## [1] &quot;A&quot; &quot;B&quot; &quot;A&quot; &quot;B&quot;</code></pre>
-<p><strong>Question #1:</strong></p>
-<p>Set up a vector named age, consisting of 15, 28, 32, 36, 27, 18, 52,
-39, 42, 29, 35, 31, 27, 22, 37, 34, 19, 20, 57, 49, 50, 37, 46, 25, 17,
-12, 42, 53, 41, 51, 35, 24, 33, 8.</p>
-<pre class="r"><code>age &lt;- c(15, 28, 32, 36, 27, 18, 52, 39, 42, 29, 35, 31, 27, 22, 37, 34, 19, 20, 57, 49, 50, 37, 46, 25, 17, 12, 42, 53, 41, 51, 35, 24, 33, 8)</code></pre>
+<p><strong>Question #1</strong></p>
 <ol style="list-style-type: lower-alpha">
-<li>How many data points?</li>
+<li>Create a vector.</li>
 </ol>
-<pre class="r"><code>length(age)</code></pre>
-<pre><code>## [1] 34</code></pre>
+<pre class="r"><code>scores &lt;- c(Ana = 78, Ben = 92, Cid = 85, Dex = 92, Eli = 67, Fay = 88, Gio = 74)
+scores</code></pre>
+<pre><code>## Ana Ben Cid Dex Eli Fay Gio 
+##  78  92  85  92  67  88  74</code></pre>
 <ol start="2" style="list-style-type: lower-alpha">
-<li>Find the reciprocal of age?</li>
+<li>Sort the scores in ascending order and descending order. What is the
+output?</li>
 </ol>
-<pre class="r"><code>1/ age</code></pre>
-<pre><code>##  [1] 0.06666667 0.03571429 0.03125000 0.02777778 0.03703704 0.05555556
-##  [7] 0.01923077 0.02564103 0.02380952 0.03448276 0.02857143 0.03225806
-## [13] 0.03703704 0.04545455 0.02702703 0.02941176 0.05263158 0.05000000
-## [19] 0.01754386 0.02040816 0.02000000 0.02702703 0.02173913 0.04000000
-## [25] 0.05882353 0.08333333 0.02380952 0.01886792 0.02439024 0.01960784
-## [31] 0.02857143 0.04166667 0.03030303 0.12500000</code></pre>
+<pre class="r"><code>sort(scores)</code></pre>
+<pre><code>## Eli Gio Ana Cid Fay Ben Dex 
+##  67  74  78  85  88  92  92</code></pre>
+<pre class="r"><code>sort(scores, decreasing = TRUE)</code></pre>
+<pre><code>## Ben Dex Fay Cid Ana Gio Eli 
+##  92  92  88  85  78  74  67</code></pre>
 <ol start="3" style="list-style-type: lower-alpha">
-<li>Assign also new_age &lt;- c(age, 0, age). What happens to
-new_age?</li>
+<li>Print your sorted result from sort-ascending. Check whether the #
+names (“Ana”, “Ben”, …) stayed attached to their correct values.</li>
 </ol>
-<pre class="r"><code>new_age &lt;- c(age, 0, age)</code></pre>
+<pre class="r"><code>sort(scores)</code></pre>
+<pre><code>## Eli Gio Ana Cid Fay Ben Dex 
+##  67  74  78  85  88  92  92</code></pre>
 <ol start="4" style="list-style-type: lower-alpha">
-<li>Find the minimum and the maximum value of age.</li>
+<li>Create another vectors:</li>
 </ol>
-<pre class="r"><code>min(age)</code></pre>
-<pre><code>## [1] 8</code></pre>
-<pre class="r"><code>max(age)</code></pre>
-<pre><code>## [1] 57</code></pre>
+<pre class="r"><code>subjects &lt;- c(&quot;Science&quot;, &quot;Math&quot;, &quot;English&quot;, &quot;Filipino&quot;, &quot;PE&quot;) 
+incomplete &lt;- c(85, NA, 90, 70, NA, 95)</code></pre>
+<ol start="5" style="list-style-type: lower-alpha">
+<li>Sort subjects alphabetically using sort()</li>
+</ol>
+<pre class="r"><code>sort(subjects)</code></pre>
+<pre><code>## [1] &quot;English&quot;  &quot;Filipino&quot; &quot;Math&quot;     &quot;PE&quot;       &quot;Science&quot;</code></pre>
+<ol start="6" style="list-style-type: lower-alpha">
+<li>Sort incomplete using sort(). Observe what happens to the NA</li>
+</ol>
+<pre class="r"><code>sort(incomplete)</code></pre>
+<pre><code>## [1] 70 85 90 95</code></pre>
 <p><strong>Question #2:</strong></p>
-<p>rep(c(“A”,“B”), each = 2) and rep(c(“A”,“B”), times = 2) both produce
-a vector of length 4, but with different element orders. Explain in your
-own words the difference between each and times.</p>
-<pre class="r"><code>rep(c(&quot;A&quot;, &quot;B&quot;), each = 2)</code></pre>
-<pre><code>## [1] &quot;A&quot; &quot;A&quot; &quot;B&quot; &quot;B&quot;</code></pre>
-<pre class="r"><code>rep(c(&quot;A&quot;, &quot;B&quot;), times = 2)</code></pre>
-<pre><code>## [1] &quot;A&quot; &quot;B&quot; &quot;A&quot; &quot;B&quot;</code></pre>
+<ul>
+<li><p>When you sorted scores, did the names stay correctly attached to
+their original values?</p></li>
+<li><p>Explain why this matters: if you were sorting exam scores to find
+the top performer, what would go wrong if the names did NOT follow their
+values?</p></li>
+</ul>
+<p><strong>Answer:</strong> Yes, the names stayed stuck to the right
+scores after sorting. Thats important because if the names got mixed up,
+youd end up thinking the wrong person got the highest score and
+completely mess up who the top performer actually is.</p>
 <p><strong>Question #3:</strong></p>
-<p>Compare seq(1, 20, by = 2) with seq(1, 20, length.out = 5). What does
-each argument (by vs length.out) control, and when would you use one
-over the other in a real analysis?</p>
-<pre class="r"><code>seq(1, 20, by = 2)</code></pre>
-<pre><code>##  [1]  1  3  5  7  9 11 13 15 17 19</code></pre>
-<pre class="r"><code>seq(1, 20, length.out = 5)</code></pre>
-<pre><code>## [1]  1.00  5.75 10.50 15.25 20.00</code></pre>
+<ul>
+<li><p>By default, sort() silently removes NA values instead of showing
+them or throwing an error.</p></li>
+<li><p>Why might this default behavior be dangerous if you were
+reporting “the lowest score” in a dataset with missing data, without
+first checking for NA values?.</p></li>
+</ul>
+<p><strong>Answer:</strong> Sort just quietly drops the NAs, which can
+be risky. If youre trying to report the lowest score and dont check for
+missing data first, you might give an answer based only on the complete
+scores and never realize some values are missing, so the “lowest” number
+you report could be incomplete or misleading.</p>
 <p><strong>Question #4:</strong></p>
+<ul>
+<li>Use order(scores) and print the result. Compare this output to the
+sort(scores) output. What is the difference?</li>
+</ul>
+<pre class="r"><code>order(scores) </code></pre>
+<pre><code>## [1] 5 7 1 3 6 2 4</code></pre>
+<p><strong>Answer:</strong> order(scores) just gives you the positions
+that would put the scores in order, while sort(scores) actually gives
+you the sorted values. Theyre different outputs—one is indexes, the
+other is the numbers themselves.</p>
 <ol style="list-style-type: lower-alpha">
-<li>Generate a sequence for 20 to 60. Name the vector as vec_num</li>
+<li>Use the result of order(scores) to index scores itself: # Compare
+this to sort(scores) – they should produce the same values.</li>
 </ol>
-<pre class="r"><code>vec_num &lt;- 20:60</code></pre>
-<ol start="2" style="list-style-type: lower-alpha">
-<li>Get the mean for vec_num.</li>
-</ol>
-<pre class="r"><code>mean(vec_num)</code></pre>
-<pre><code>## [1] 40</code></pre>
-<ol start="3" style="list-style-type: lower-alpha">
-<li>Get the sum for vec_num.</li>
-</ol>
-<pre class="r"><code>sum(vec_num)</code></pre>
-<pre><code>## [1] 1640</code></pre>
-<ol start="4" style="list-style-type: lower-alpha">
-<li>How many data points are there in vec_num?</li>
-</ol>
-<pre class="r"><code>length(vec_num)</code></pre>
-<pre><code>## [1] 41</code></pre>
-</div>
-<div id="part-b-subsetting-accessing-vectors" class="section level2">
-<h2>Part B — Subsetting (Accessing) Vectors</h2>
-<pre class="r"><code>grades &lt;- c(88, 92, 79, 95, 84)
-names(grades) &lt;- c(&quot;Math&quot;, &quot;Science&quot;, &quot;English&quot;, &quot;History&quot;, &quot;PE&quot;)
-
-# TODO: Access the 3rd element of grades using positional indexing
-
-# TODO: Access the 1st abd 4th element of grades using positional indexing
-
-# TODO: Access &quot;Science&quot; and &quot;PE&quot; together using their names
-
-grades &lt;- c(88, 92, 79, 95, 84)
-names(grades) &lt;- c(&quot;Math&quot;, &quot;Science&quot;, &quot;English&quot;, &quot;History&quot;, &quot;PE&quot;)
-grades[3]</code></pre>
-<pre><code>## English 
-##      79</code></pre>
-<pre class="r"><code>grades[c(1, 4)]</code></pre>
-<pre><code>##    Math History 
-##      88      95</code></pre>
-<pre class="r"><code>grades[c(&quot;Science&quot;, &quot;PE&quot;)]</code></pre>
-<pre><code>## Science      PE 
-##      92      84</code></pre>
-<pre class="r"><code># TODO: Return all elements of grades EXCEPT the 1st and 4th, using
-# negative indexing, e.g. grades[-c(...)]
-
-grades[-c(1, 4)]</code></pre>
-<pre><code>## Science English      PE 
-##      92      79      84</code></pre>
-<pre class="r"><code># TODO: Use a logical condition to return only the grades that are
-# greater than or equal to 85 (hint: grades[grades &gt;= 85])
-
-grades[grades &gt;= 85]</code></pre>
-<pre><code>##    Math Science History 
-##      88      92      95</code></pre>
+<ul>
+<li>Do they have the same values? Explain briefly.</li>
+</ul>
+<p><strong>Answer:</strong> When you do scores[order(scores)], you get
+the exact same values as sort(scores). Yes, theyre the same because
+using the order indexes to pull from the original vector is basically
+how sort works under the hood.</p>
 <p><strong>Question #5:</strong></p>
-<p>Negative indexing (grades[-1]) removes an element, while logical
-indexing (grades[grades &gt;= 85]) filters by a condition.</p>
-<p>Describe a real situation where you would need negative indexing, and
-a different situation where logical indexing would be the better
-tool.</p>
-<p><strong>Answer:</strong></p>
 <ul>
-<li><p>Negative indexing: Useful when you know the positions to
-drop.</p></li>
-<li><p>Logical indexing: Useful when you want to keep values that meet a
-condition.</p></li>
+<li><p>Create a dataframe from these vectors name = c(“Ana”, “Ben”,
+“Cid”, “Dex”, “Eli”, “Fay”, “Gio”) score = c(78, 92, 85, 92, 67, 88, 74)
+section = c(“A”, “B”, “A”, “B”, “A”, “B”, “A”)</p></li>
+<li><p>What is the output?</p></li>
 </ul>
+<pre class="r"><code>name &lt;- c(&quot;Ana&quot;, &quot;Ben&quot;, &quot;Cid&quot;, &quot;Dex&quot;, &quot;Eli&quot;, &quot;Fay&quot;, &quot;Gio&quot;)
+score &lt;- c(78, 92, 85, 92, 67, 88, 74)
+section &lt;- c(&quot;A&quot;, &quot;B&quot;, &quot;A&quot;, &quot;B&quot;, &quot;A&quot;, &quot;B&quot;, &quot;A&quot;)
+
+students &lt;- data.frame(name, score, section)
+students</code></pre>
+<pre><code>##   name score section
+## 1  Ana    78       A
+## 2  Ben    92       B
+## 3  Cid    85       A
+## 4  Dex    92       B
+## 5  Eli    67       A
+## 6  Fay    88       B
+## 7  Gio    74       A</code></pre>
+<ol style="list-style-type: lower-alpha">
+<li>Reorder the ENTIRE students data frame by score using
+students[order(students$score), ] What is the output?</li>
+</ol>
+<pre class="r"><code>students[order(students$score), ]</code></pre>
+<pre><code>##   name score section
+## 5  Eli    67       A
+## 7  Gio    74       A
+## 1  Ana    78       A
+## 3  Cid    85       A
+## 6  Fay    88       B
+## 2  Ben    92       B
+## 4  Dex    92       B</code></pre>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>Reorder students by score in DESCENDING order.</li>
+</ol>
+<pre class="r"><code>students[order(students$score, decreasing = TRUE), ]</code></pre>
+<pre><code>##   name score section
+## 2  Ben    92       B
+## 4  Dex    92       B
+## 6  Fay    88       B
+## 3  Cid    85       A
+## 1  Ana    78       A
+## 7  Gio    74       A
+## 5  Eli    67       A</code></pre>
 <p><strong>Question #6:</strong></p>
-<p>What happens if you run grades[10] (an index that doesn’t exist)? Run
-it, observe the result, and explain why R responds this way instead of
-throwing an error.</p>
-<p><strong>Answer:</strong> If you run grades[10] it returns NA. R
-doesnt throw an error when you ask for an index that doesnt exist with
-single brackets. It simply returns a missing value instead.</p>
+<ul>
+<li><p>sort(scores) and scores[order(scores)] produce the same final
+values, but they work completely differently under the hood.</p></li>
+<li><p>In your own words, explain what order(scores) actually returns
+(look at the raw numbers it gives you), and why that output is useless
+on its own unless you use it to index something.</p></li>
+</ul>
+<p><strong>Answer:</strong> order(scores) doesnt give you the sorted
+scores. It just returns a bunch of raw index numbers (like 5, 7, 1, 3…)
+that show the positions of the values in sorted order. Those numbers are
+pretty much useless by themselves — they only become useful when you use
+them to pull the actual values out of the original vector or data frame
+(like scores[order(scores)]).</p>
 <p><strong>Question #7:</strong></p>
-<p>Print a vector with the integers between 1 and 100 that are not
-divisible by 3, 5 and 7 using filter option.</p>
-<pre class="r"><code>Filter(function(i) { all(i %% c(3,5,7) != 0)}, seq(100))</code></pre>
-<pre><code>##  [1]  1  2  4  8 11 13 16 17 19 22 23 26 29 31 32 34 37 38 41 43 44 46 47 52 53
-## [26] 58 59 61 62 64 67 68 71 73 74 76 79 82 83 86 88 89 92 94 97</code></pre>
-</div>
-<div id="part-c-vector-operations-and-append" class="section level2">
-<h2>Part C — Vector Operations and append()</h2>
-<pre class="r"><code>x &lt;- c(1, 2, 3, 4)
-y &lt;- c(10, 20, 30, 40)
-
-# TODO: Add x and y element-wise, and print the result
-
-# TODO: Multiply every element of x by 2
-
-x + y</code></pre>
-<pre><code>## [1] 11 22 33 44</code></pre>
-<pre class="r"><code>x * 2</code></pre>
-<pre><code>## [1] 2 4 6 8</code></pre>
-<pre class="r"><code>z &lt;- c(1, 2, 3, 4, 5, 6)
-short &lt;- c(1, 0)
-
-# TODO: Add z and short together and print the result. Run this even
-# though the vectors are different lengths -- observe what R does.
-
-z + short</code></pre>
-<pre><code>## [1] 2 2 4 4 6 6</code></pre>
-<pre class="r"><code>fruits &lt;- c(&quot;apple&quot;, &quot;banana&quot;, &quot;cherry&quot;)
-
-# TODO: Use append() to add &quot;date&quot; to the end of fruits
-
-# TODO: Use append() with the &quot;after&quot; argument to insert &quot;kiwi&quot; between
-# &quot;apple&quot; and &quot;banana&quot; (i.e., after position 1)
-
-fruits &lt;- append(fruits, &quot;date&quot;)
-fruits</code></pre>
-<pre><code>## [1] &quot;apple&quot;  &quot;banana&quot; &quot;cherry&quot; &quot;date&quot;</code></pre>
-<pre class="r"><code>fruits &lt;- append(fruits, &quot;kiwi&quot;, after = 1)
-fruits</code></pre>
-<pre><code>## [1] &quot;apple&quot;  &quot;kiwi&quot;   &quot;banana&quot; &quot;cherry&quot; &quot;date&quot;</code></pre>
+<ul>
+<li><p>Explain why sort() alone could NOT have been used to reorder the
+whole students data frame by score (try to imagine running
+sort(students) and think about what “sorting a table” would even
+mean).</p></li>
+<li><p>Why is order() the correct tool whenever you need to keep
+multiple related columns lined up with each other?</p></li>
+</ul>
+<p><strong>Answer:</strong></p>
+<ul>
+<li><p>You cant use sort() alone to reorder the whole students data
+frame because it only works on a single vector. Trying sort(students)
+wouldnt make sense — R has no idea which column to sort by or how to
+keep the other columns matched up with the right rows.</p></li>
+<li><p>order() is the right tool when you need multiple related columns
+to stay lined up. It gives you the correct row indexes, and using those
+indexes on the entire data frame moves every column together so nothing
+gets mismatched.</p></li>
+</ul>
 <p><strong>Question #8:</strong></p>
-<p>In the vectors-recycling chunk, z has 6 elements and short has only
-2. R still produced an answer instead of an error.</p>
-<p>Explain, in your own words, what R’s “recycling rule” did to short to
-make the addition work.</p>
-<p><strong>Answer:</strong> R recycled the shorter vector(short) by
-repeating its values until it matched the length of z. So c(1, 0) became
-c(1, 0, 1, 0, 1, 0) and the addition worked.</p>
-<p><strong>Question #9:</strong></p>
-<p>Now try adding z (length 6) to c(1, 0, 1) (length 3) instead. Does it
-work cleanly?</p>
-<p>Then try adding z to c(1, 0, 1, 1) (length 4). Compare the warning
-(or lack of one) in each case, and explain what condition determines
-whether R recycles silently versus with a warning.</p>
-<p><strong>Answer:</strong></p>
+<pre class="r"><code># TODO: Use rank(scores) and print the result. 
+# Print scores, then rank(scores), side by side (e.g., using
+# cbind(scores, rank(scores))) so you can see which score got which rank
+
+cbind(scores, rank(scores))</code></pre>
+<pre><code>##     scores    
+## Ana     78 3.0
+## Ben     92 6.5
+## Cid     85 4.0
+## Dex     92 6.5
+## Eli     67 1.0
+## Fay     88 5.0
+## Gio     74 2.0</code></pre>
+<ol style="list-style-type: lower-alpha">
+<li>Ranking the output for Ben and Dex</li>
+</ol>
+<pre class="r"><code># TODO: Look at the rank() output for Ben and Dex.
+
+rank(scores)</code></pre>
+<pre><code>## Ana Ben Cid Dex Eli Fay Gio 
+## 3.0 6.5 4.0 6.5 1.0 5.0 2.0</code></pre>
 <ul>
-<li><p>z + c(1, 0, 1)- it works but gives a warning</p></li>
-<li><p>z + c(1, 0, 1, 1)- works silenty with no warning</p></li>
+<li>What rank did each of them receive?</li>
 </ul>
-</div>
-<div id="part-d-lists-creating-and-subsetting" class="section level2">
-<h2>Part D — Lists: Creating and Subsetting</h2>
-<pre class="r"><code># TODO: Create a list called student with these named elements:
-# name = &quot;Maria Santos&quot;, age = 20, grades = c(88, 92, 79),
-# is_enrolled = TRUE
-
-student &lt;- list(
-  name = &quot;Maria Santos&quot;,
-  age = 20,
-  grades = c(88, 92, 79),
-  is_enrolled = TRUE
-)</code></pre>
-<pre class="r"><code># TODO: Access the &quot;grades&quot; element of student using single brackets
-# student[&quot;grades&quot;] -- then check its type with class()
-
-student[&quot;grades&quot;]</code></pre>
-<pre><code>## $grades
-## [1] 88 92 79</code></pre>
-<pre class="r"><code>class(student[&quot;grades&quot;])</code></pre>
-<pre><code>## [1] &quot;list&quot;</code></pre>
-<pre class="r"><code># TODO: Access the &quot;grades&quot; element of student using double brackets
-# student[[&quot;grades&quot;]] -- then check its type with class()
-
-student[[&quot;grades&quot;]]</code></pre>
-<pre><code>## [1] 88 92 79</code></pre>
-<pre class="r"><code>class(student[[&quot;grades&quot;]])</code></pre>
-<pre><code>## [1] &quot;numeric&quot;</code></pre>
-<pre class="r"><code># TODO: Access the &quot;name&quot; element of student using the $ operator
-# student$name
-
-student$name</code></pre>
-<pre><code>## [1] &quot;Maria Santos&quot;</code></pre>
-<pre class="r"><code># TODO: From student, extract just the SECOND grade in the grades vector
-# in a single expression, e.g. student[[&quot;grades&quot;]][2] or student$grades[2]
-
-student$grades[2]</code></pre>
-<pre><code>## [1] 92</code></pre>
-<p><strong>Question #10:</strong></p>
-<p>student[“grades”] and student[[“grades”]] look similar but return
-objects of different classes.</p>
-<p>Run class() on each and explain the difference in what single-bracket
-[ ] versus double-bracket [[ ]] return from a list.</p>
-<p><strong>Answer:</strong></p>
+<p><strong>Answer:</strong> Ben and Dex both received the rank 6.5.</p>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>Ben and Dex both scored 92, the highest score in the class, but
+under the default rank() they did NOT both simply get rank “1” or rank
+“7” as a whole number. Explain exactly what value they received by
+default and why R computes it that way for tied values.</li>
+</ol>
+<p><strong>Answer:</strong> Ben and Dex both got 92, the highest score,
+but rank() didnt give them a plain 1 or 7. By default it averages the
+ranks for ties, so since those two scores would have taken positions 6
+and 7, each one gets the average: 6.5.</p>
+<p><strong>Question #8:</strong></p>
+<ol style="list-style-type: lower-alpha">
+<li>Create a dataframe.</li>
+</ol>
+<p>sales &lt;- data.frame( employee = c(“Rey”, “Sam”, “Tin”, “Uma”,
+“Val”), units_sold = c(120, 145, 145, 98, 130)</p>
 <ul>
-<li><p>class(student[“grades”])- “list”</p></li>
-<li><p>class(student[[“grades”]])- “numeric”</p></li>
+<li>Add a column sales$rank that ranks employees by units_sold, with the
+TOP seller receiving rank 1.</li>
 </ul>
-<p>Single brackets always return a list while the double brackets return
-the actual content inside the list element.</p>
-<p><strong>Question #11:</strong></p>
-<p>Why do you think R makes a distinction between [ ] and [[ ]] for
-lists, but a vector only needs [ ]? Think about what a list can contain
-that a vector cannot.</p>
-<p><strong>Answer:</strong> R needs [ ] to keep the list structure and
-[[ ]] to extract the raw content because lists can hold mixed types of
-objects. While vectors hold only one type, so a single [ ] is
-enough.</p>
-</div>
-<div id="part-e-critical-thinking-challenge" class="section level2">
-<h2>Part E — Critical Thinking Challenge</h2>
-<pre class="r"><code>inventory &lt;- list(
-  item = c(&quot;Notebook&quot;, &quot;Pen&quot;, &quot;Eraser&quot;),
-  price = c(25.50, 10.00, 5.00),
-  in_stock = c(TRUE, TRUE, FALSE)
+<pre class="r"><code>sales &lt;- data.frame(
+  employee = c(&quot;Rey&quot;, &quot;Sam&quot;, &quot;Tin&quot;, &quot;Uma&quot;, &quot;Val&quot;), 
+  units_sold = c(120, 145, 145, 98, 130)
 )
 
-# TODO: Using what you learned in Parts B and D, print only the items
-# (from inventory$item) that are currently in stock (in_stock == TRUE)
-
-inventory$item[inventory$in_stock]</code></pre>
-<pre><code>## [1] &quot;Notebook&quot; &quot;Pen&quot;</code></pre>
-<pre class="r"><code># TODO: A new product &quot;Ruler&quot; priced at 15.00 and in stock (TRUE) needs
-# to be added to inventory. Use append() to add &quot;Ruler&quot; to
-# inventory$item, 15.00 to inventory$price, and TRUE to inventory$in_stock.
-# (You will need three separate append() calls, one per vector.)
-
-inventory$item &lt;- append(inventory$item, &quot;Ruler&quot;)
-inventory$price &lt;- append(inventory$price, 15.00)
-inventory$in_stock &lt;- append(inventory$in_stock, TRUE)</code></pre>
-<p><strong>Question #12:</strong></p>
-<p>In challenge-1, you combined logical indexing on one vector
-(in_stock) to filter a different vector (item) inside the same list.
-Explain, step by step, why inventory<span class="math inline">\(item[inventory\)</span>in_stock] works even though
-item and in_stock are stored as separate elements of the list.</p>
-<p><strong>Answer:</strong> inventory<span class="math inline">\(item
-and inventory\)</span>in_stock are same length vectors R uses the
-logical values from in_stock to filter item by position, so it works
-even though they are separate list elements.</p>
-<p><strong>Question #13:</strong></p>
-<p>Suppose a classmate stores related data as three separate,
-unconnected vectors (item_names, item_prices, item_stock) instead of
-grouping them into one list like inventory. What risks or bugs could
-this create as the dataset grows or gets reordered? Argue for or against
-using a list (or, later, a data frame) instead of separate vectors.</p>
-<p><strong>Answer:</strong> Separate vectors can get out of sync if one
-is sorted or changed. A list keeps related data together and avoids
-those bugs.</p>
-</div>
-<div id="conclusion" class="section level2">
-<h2>Conclusion</h2>
-<p>In 3–4 sentences, summarize the key differences between vectors and
-lists in R, and explain when you would choose one data structure over
-the other.</p>
-<p><strong>Answer:</strong> Vectors store only one type of data and are
-simple and fast for calculations lists can hold mixed types of nested
-objects, making them more flexible for complex data. Use a vector when a
-values are the same type and you mainly need math or filtering. Use a
-list when you need to group different kinds of information together.</p>
-</div>
+sales$rank &lt;- rank(-sales$units_sold)
+sales</code></pre>
+<pre><code>##   employee units_sold rank
+## 1      Rey        120  4.0
+## 2      Sam        145  1.5
+## 3      Tin        145  1.5
+## 4      Uma         98  5.0
+## 5      Val        130  3.0</code></pre>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>Reorder the entire sales data frame using order() so it is displayed
+from HIGHEST units_sold to LOWEST.</li>
+</ol>
+<pre class="r"><code>sales[order(sales$units_sold, decreasing = TRUE), ]</code></pre>
+<pre><code>##   employee units_sold rank
+## 2      Sam        145  1.5
+## 3      Tin        145  1.5
+## 5      Val        130  3.0
+## 1      Rey        120  4.0
+## 4      Uma         98  5.0</code></pre>
+<p><strong>Question #9:</strong></p>
+<ul>
+<li><p>In this challenge, you used rank() to determine standing and
+order() to determine display order.</p></li>
+<li><p>Could you have used order() alone to solve the entire problem
+(both awarding ranks AND reordering the table)?</p></li>
+<li><p>Explain what order() is missing that rank() provides, using your
+own words rather than repeating the definitions</p></li>
+</ul>
+<p><strong>Answer:</strong> No, you couldnt solve the whole thing with
+just order(). Its perfect for rearranging the rows so the table shows
+highest to lowest, but it only gives you the positions to sort by. It
+doesnt actually create the ranking numbers (like 1 for the top seller, 2
+for the next, etc.). Thats the part rank() gives you — the actual
+standing values you can put in a column.</p>
 
 
 

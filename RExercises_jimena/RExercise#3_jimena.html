@@ -11,9 +11,9 @@
 
 <meta name="author" content="Hannah Mae T. Jimena" />
 
-<meta name="date" content="2026-11-08" />
+<meta name="date" content="2026-10-21" />
 
-<title>RExercise#7_jimena</title>
+<title>R Lab: Data Structures - Vectors and Lists</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -350,265 +350,337 @@ display: none;
 
 
 
-<h1 class="title toc-ignore">RExercise#7_jimena</h1>
+<h1 class="title toc-ignore">R Lab: Data Structures - Vectors and
+Lists</h1>
 <h4 class="author">Hannah Mae T. Jimena</h4>
-<h4 class="date">2026-11-08</h4>
+<h4 class="date">2026-10-21</h4>
 
 </div>
 
 
-<p><strong>R Lab: Data Structures - Data Frames</strong></p>
-<p>Hannah Mae T. Jimena</p>
-<div id="part-a-creating-data-frames" class="section level2">
-<h2>Part A — Creating Data Frames</h2>
-<p><strong>Question #1</strong></p>
-<p>You are provided a survey summary (Figure 1) of 20 respondents,
-recording sex, father’s occupation, persons at home, siblings at school,
-and type of house — each stored as a numeric code. In this lab you will
-enter this real dataset into R, build a data frame, subset it, inspect
-its properties, recode the numeric codes into meaningful labels, and
-analyze it.</p>
-<p><strong>Create a data frame using the Figure 1.</strong></p>
-<pre class="r"><code># TODO: Before combining these into a data frame, confirm all six vectors
-# have the same length using length() on each one (or wrap them in c()
-# and check for yourself that every value is 20)
+<div id="part-a-creating-vectors-c-seq-rep" class="section level2">
+<h2>Part A — Creating Vectors: c(), seq(), rep()</h2>
+<pre class="r"><code># TODO: Create a numeric vector called scores containing: 88, 92, 79, 95, 84
+# Then create a character vector called subjects containing:
+# &quot;Math&quot;, &quot;Science&quot;, &quot;English&quot;, &quot;History&quot;, &quot;PE&quot;
 
-Respondent &lt;- 1:20
-Sex &lt;- c(2,2,1,2,2,2,2,2,2,2,1,2,2,2,2,2,2,2,1,2)
-FathersOccupation &lt;- c(1,3,3,3,1,2,3,1,1,1,3,2,1,3,3,1,3,1,2,1)
-PersonsAtHome &lt;- c(5,7,3,8,5,9,6,7,8,4,7,5,4,7,8,8,3,11,7,6)
-SiblingsAtSchool &lt;- c(6,4,4,1,2,1,5,3,1,2,3,2,5,5,2,1,2,5,3,2)
-TypeOfHouses &lt;- c(1,2,3,1,1,3,3,1,2,3,2,3,2,2,3,3,3,3,3,2)
+scores &lt;- c(88, 92, 79, 95, 84)
+subjects &lt;- c(&quot;Math&quot;, &quot;Science&quot;, &quot;English&quot;, &quot;History&quot;, &quot;PE&quot;)</code></pre>
+<pre class="r"><code># TODO: Use seq() to create a vector called odds containing odd numbers.
+# from 1 to 19 (hint: use the &quot;by&quot; argument)
 
-length(Respondent)</code></pre>
-<pre><code>## [1] 20</code></pre>
-<pre class="r"><code>length(Sex)</code></pre>
-<pre><code>## [1] 20</code></pre>
-<pre class="r"><code>length(FathersOccupation)</code></pre>
-<pre><code>## [1] 20</code></pre>
-<pre class="r"><code>length(PersonsAtHome)</code></pre>
-<pre><code>## [1] 20</code></pre>
-<pre class="r"><code>length(SiblingsAtSchool)</code></pre>
-<pre><code>## [1] 20</code></pre>
-<pre class="r"><code>length(TypeOfHouses)</code></pre>
-<pre><code>## [1] 20</code></pre>
-<pre class="r"><code># TODO: Combine all six vectors into a data frame called survey using
-# data.frame(), naming the columns: Respondent, Sex, FathersOccupation,
-# PersonsAtHome, SiblingsAtSchool, TypesOfHouses
-# Print the resulting data frame
+# TODO: Use seq() with length.out to create a vector of exactly 5 evenly
+# spaced numbers between 0 and 1
 
-survey &lt;- data.frame(
-  Respondent = Respondent,
-  Sex = Sex,
-  FathersOccupation = FathersOccupation,
-  PersonsAtHome = PersonsAtHome,
-  SiblingsAtSchool = SiblingsAtSchool,
-  TypeOfHouses = TypeOfHouses
-)
-print(survey)</code></pre>
-<pre><code>##    Respondent Sex FathersOccupation PersonsAtHome SiblingsAtSchool TypeOfHouses
-## 1           1   2                 1             5                6            1
-## 2           2   2                 3             7                4            2
-## 3           3   1                 3             3                4            3
-## 4           4   2                 3             8                1            1
-## 5           5   2                 1             5                2            1
-## 6           6   2                 2             9                1            3
-## 7           7   2                 3             6                5            3
-## 8           8   2                 1             7                3            1
-## 9           9   2                 1             8                1            2
-## 10         10   2                 1             4                2            3
-## 11         11   1                 3             7                3            2
-## 12         12   2                 2             5                2            3
-## 13         13   2                 1             4                5            2
-## 14         14   2                 3             7                5            2
-## 15         15   2                 3             8                2            3
-## 16         16   2                 1             8                1            3
-## 17         17   2                 3             3                2            3
-## 18         18   2                 1            11                5            3
-## 19         19   1                 2             7                3            3
-## 20         20   2                 1             6                2            2</code></pre>
-<p><strong>a. Describe the data. Get the structure or the summary of the
-data.</strong></p>
-<pre class="r"><code>str(survey)</code></pre>
-<pre><code>## &#39;data.frame&#39;:    20 obs. of  6 variables:
-##  $ Respondent       : int  1 2 3 4 5 6 7 8 9 10 ...
-##  $ Sex              : num  2 2 1 2 2 2 2 2 2 2 ...
-##  $ FathersOccupation: num  1 3 3 3 1 2 3 1 1 1 ...
-##  $ PersonsAtHome    : num  5 7 3 8 5 9 6 7 8 4 ...
-##  $ SiblingsAtSchool : num  6 4 4 1 2 1 5 3 1 2 ...
-##  $ TypeOfHouses     : num  1 2 3 1 1 3 3 1 2 3 ...</code></pre>
-<pre class="r"><code>summary(survey)</code></pre>
-<pre><code>##    Respondent         Sex       FathersOccupation PersonsAtHome 
-##  Min.   : 1.00   Min.   :1.00   Min.   :1.00      Min.   : 3.0  
-##  1st Qu.: 5.75   1st Qu.:2.00   1st Qu.:1.00      1st Qu.: 5.0  
-##  Median :10.50   Median :2.00   Median :2.00      Median : 7.0  
-##  Mean   :10.50   Mean   :1.85   Mean   :1.95      Mean   : 6.4  
-##  3rd Qu.:15.25   3rd Qu.:2.00   3rd Qu.:3.00      3rd Qu.: 8.0  
-##  Max.   :20.00   Max.   :2.00   Max.   :3.00      Max.   :11.0  
-##  SiblingsAtSchool  TypeOfHouses
-##  Min.   :1.00     Min.   :1.0  
-##  1st Qu.:2.00     1st Qu.:2.0  
-##  Median :2.50     Median :2.5  
-##  Mean   :2.95     Mean   :2.3  
-##  3rd Qu.:4.25     3rd Qu.:3.0  
-##  Max.   :6.00     Max.   :3.0</code></pre>
-<p><strong>Answer:</strong> The data frame survey contains 20
-observations and 6 variables. From str(survey) we see that Respondent is
-integer and the other five variables are currently numeric. The
-summary(survey) shows the minimum, 1st quartile, median, mean, 3rd
-quartile and maximum for each numeric column.</p>
-<p><strong>b. Check for the dimensions. How many rows and
-columns?</strong></p>
-<pre class="r"><code>dim(survey)</code></pre>
-<pre><code>## [1] 20  6</code></pre>
-<p><strong>Answer:</strong> The data frame has 20 rows and 6 columns</p>
-<p><strong>c. Create factors for Sex, Father’s Occupation and Types of
-Houses</strong></p>
-<pre class="r"><code>survey$Sex &lt;- factor(survey$Sex,
-                     levels = c(1, 2),
-                     labels = c(&quot;Male&quot;,
-                                &quot;Female&quot;))
-survey$FathersOccupation &lt;- factor(survey$FathersOccupation,
-                                   levels = c(1, 2, 3),
-                                   labels = c(&quot;Farmer&quot;, &quot;Driver&quot;, &quot;Others&quot;))
-survey$TypeOfHouses &lt;- factor(survey$TypeOfHouses,
-                              levels = c(1, 2, 3),
-                              labels = c(&quot;Wood&quot;, &quot;Semi-Concrete&quot;, &quot;Concrete&quot;))
-str(survey)</code></pre>
-<pre><code>## &#39;data.frame&#39;:    20 obs. of  6 variables:
-##  $ Respondent       : int  1 2 3 4 5 6 7 8 9 10 ...
-##  $ Sex              : Factor w/ 2 levels &quot;Male&quot;,&quot;Female&quot;: 2 2 1 2 2 2 2 2 2 2 ...
-##  $ FathersOccupation: Factor w/ 3 levels &quot;Farmer&quot;,&quot;Driver&quot;,..: 1 3 3 3 1 2 3 1 1 1 ...
-##  $ PersonsAtHome    : num  5 7 3 8 5 9 6 7 8 4 ...
-##  $ SiblingsAtSchool : num  6 4 4 1 2 1 5 3 1 2 ...
-##  $ TypeOfHouses     : Factor w/ 3 levels &quot;Wood&quot;,&quot;Semi-Concrete&quot;,..: 1 2 3 1 1 3 3 1 2 3 ...</code></pre>
-<p><strong>d. Get the mean for all columns.</strong></p>
-<pre class="r"><code>colMeans(survey[, c(&quot;Respondent&quot;, &quot;PersonsAtHome&quot;, &quot;SiblingsAtSchool&quot;)], na.rm = TRUE)</code></pre>
-<pre><code>##       Respondent    PersonsAtHome SiblingsAtSchool 
-##            10.50             6.40             2.95</code></pre>
-<p><strong>Answer:</strong> The mean of Respondent is 10.5, the mean of
-PersonsAtHome is 6.40, and the mean of SiblingsAtSchool is 2.95. (Means
-for the factor columns are not meaningful.)</p>
-<p><strong>e. Extract the 1st five rows and then all the columns using
-subsetting functions. What is the output?</strong></p>
-<pre class="r"><code>survey[1:5, ]</code></pre>
-<pre><code>##   Respondent    Sex FathersOccupation PersonsAtHome SiblingsAtSchool
-## 1          1 Female            Farmer             5                6
-## 2          2 Female            Others             7                4
-## 3          3   Male            Others             3                4
-## 4          4 Female            Others             8                1
-## 5          5 Female            Farmer             5                2
-##    TypeOfHouses
-## 1          Wood
-## 2 Semi-Concrete
-## 3      Concrete
-## 4          Wood
-## 5          Wood</code></pre>
-<p><strong>f. Select the variable types of houses then store the vector
-that results as types_houses.</strong></p>
-<pre class="r"><code>types_houses &lt;- survey$TypeOfHouses</code></pre>
-<p><strong>Answer:</strong> The variable TypesOfHouses was extracted and
-stored in a new object called types_houses. It is a factor with three
-levels: Wood, Semi-Concrete and Concrete.</p>
-<p><strong>g. Select only all Males respondent that their father
-occupation was farmer.</strong></p>
-<pre class="r"><code>males_farmer &lt;- subset(survey, Sex == &quot;Male&quot; &amp; FathersOccupation == &quot;Farmer&quot;)
-males_farmer</code></pre>
-<pre><code>## [1] Respondent        Sex               FathersOccupation PersonsAtHome    
-## [5] SiblingsAtSchool  TypeOfHouses     
-## &lt;0 rows&gt; (or 0-length row.names)</code></pre>
-<p><strong>Answer:</strong> Result: There are 0 rows. No male respondent
-had a father who was a farmer in this survey.</p>
-<p><strong>h. Select only all females respondent that have greater than
-or equal to 5 number of siblings attending school.</strong></p>
-<pre class="r"><code>females_5plus_siblings &lt;- subset(survey,
-                                 Sex == &quot;Female&quot; &amp; SiblingsAtSchool &gt;= 5)
-females_5plus_siblings</code></pre>
-<pre><code>##    Respondent    Sex FathersOccupation PersonsAtHome SiblingsAtSchool
-## 1           1 Female            Farmer             5                6
-## 7           7 Female            Others             6                5
-## 13         13 Female            Farmer             4                5
-## 14         14 Female            Others             7                5
-## 18         18 Female            Farmer            11                5
-##     TypeOfHouses
-## 1           Wood
-## 7       Concrete
-## 13 Semi-Concrete
-## 14 Semi-Concrete
-## 18      Concrete</code></pre>
+odds &lt;- seq(1, 19, by = 2)
+seq(0, 1, length.out = 5)</code></pre>
+<pre><code>## [1] 0.00 0.25 0.50 0.75 1.00</code></pre>
+<pre class="r"><code># TODO: Use rep() to create a vector that repeats the value &quot;A&quot; 4 times
+
+# TODO: Use rep() with the &quot;each&quot; argument to turn c(&quot;A&quot;, &quot;B&quot;) into
+# &quot;A&quot; &quot;A&quot; &quot;B&quot; &quot;B&quot; (each element repeated twice, in order)
+
+# TODO: Use rep() with the &quot;times&quot; argument to turn c(&quot;A&quot;, &quot;B&quot;) into
+# &quot;A&quot; &quot;B&quot; &quot;A&quot; &quot;B&quot; (the whole sequence repeated twice)
+
+rep(&quot;A&quot;, 4)</code></pre>
+<pre><code>## [1] &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot;</code></pre>
+<pre class="r"><code>rep(c(&quot;A&quot;, &quot;B&quot;), each = 2)</code></pre>
+<pre><code>## [1] &quot;A&quot; &quot;A&quot; &quot;B&quot; &quot;B&quot;</code></pre>
+<pre class="r"><code>rep(c(&quot;A&quot;, &quot;B&quot;), times = 2)</code></pre>
+<pre><code>## [1] &quot;A&quot; &quot;B&quot; &quot;A&quot; &quot;B&quot;</code></pre>
+<p><strong>Question #1:</strong></p>
+<p>Set up a vector named age, consisting of 15, 28, 32, 36, 27, 18, 52,
+39, 42, 29, 35, 31, 27, 22, 37, 34, 19, 20, 57, 49, 50, 37, 46, 25, 17,
+12, 42, 53, 41, 51, 35, 24, 33, 8.</p>
+<pre class="r"><code>age &lt;- c(15, 28, 32, 36, 27, 18, 52, 39, 42, 29, 35, 31, 27, 22, 37, 34, 19, 20, 57, 49, 50, 37, 46, 25, 17, 12, 42, 53, 41, 51, 35, 24, 33, 8)</code></pre>
+<ol style="list-style-type: lower-alpha">
+<li>How many data points?</li>
+</ol>
+<pre class="r"><code>length(age)</code></pre>
+<pre><code>## [1] 34</code></pre>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>Find the reciprocal of age?</li>
+</ol>
+<pre class="r"><code>1/ age</code></pre>
+<pre><code>##  [1] 0.06666667 0.03571429 0.03125000 0.02777778 0.03703704 0.05555556
+##  [7] 0.01923077 0.02564103 0.02380952 0.03448276 0.02857143 0.03225806
+## [13] 0.03703704 0.04545455 0.02702703 0.02941176 0.05263158 0.05000000
+## [19] 0.01754386 0.02040816 0.02000000 0.02702703 0.02173913 0.04000000
+## [25] 0.05882353 0.08333333 0.02380952 0.01886792 0.02439024 0.01960784
+## [31] 0.02857143 0.04166667 0.03030303 0.12500000</code></pre>
+<ol start="3" style="list-style-type: lower-alpha">
+<li>Assign also new_age &lt;- c(age, 0, age). What happens to
+new_age?</li>
+</ol>
+<pre class="r"><code>new_age &lt;- c(age, 0, age)</code></pre>
+<ol start="4" style="list-style-type: lower-alpha">
+<li>Find the minimum and the maximum value of age.</li>
+</ol>
+<pre class="r"><code>min(age)</code></pre>
+<pre><code>## [1] 8</code></pre>
+<pre class="r"><code>max(age)</code></pre>
+<pre><code>## [1] 57</code></pre>
 <p><strong>Question #2:</strong></p>
-<ul>
-<li>Before running data.frame(), you were asked to check that all six
-vectors had the same length. Why is this check necessary specifically
-for survey data like this, where every column represents an answer from
-the SAME 20 respondents?</li>
-</ul>
-<p><strong>Answer:</strong> You need to check that a six vectors are the
-same length before making the data frame because each row stands for one
-of the same 20 respondents. If the lengths dont match, the answers get
-misaligned and no longer belong to the right people.</p>
+<p>rep(c(“A”,“B”), each = 2) and rep(c(“A”,“B”), times = 2) both produce
+a vector of length 4, but with different element orders. Explain in your
+own words the difference between each and times.</p>
+<pre class="r"><code>rep(c(&quot;A&quot;, &quot;B&quot;), each = 2)</code></pre>
+<pre><code>## [1] &quot;A&quot; &quot;A&quot; &quot;B&quot; &quot;B&quot;</code></pre>
+<pre class="r"><code>rep(c(&quot;A&quot;, &quot;B&quot;), times = 2)</code></pre>
+<pre><code>## [1] &quot;A&quot; &quot;B&quot; &quot;A&quot; &quot;B&quot;</code></pre>
 <p><strong>Question #3:</strong></p>
-<ul>
-<li>All five survey variables (Sex through TypesOfHouses) are stored as
-plain numbers (1, 2, 3, …), but they don’t all mean the same kind of
-thing. Looking at the legend, which of these columns are categories
-being represented by numbers (nominal data), and which are actual counts
-(e.g., a count of people)? Explain why treating a category like Sex as
-if it were a quantity to average would be misleading.</li>
-</ul>
-<p><strong>Answer:</strong> Sex and TypesOfHouses are just categories
-coded as numbers (nominal data), while any true counts are actual
-quantities. Averaging something like sex is misleading because the
-numbers are only labels-theres no real meaning to an “average sex” of
-1.4.</p>
+<p>Compare seq(1, 20, by = 2) with seq(1, 20, length.out = 5). What does
+each argument (by vs length.out) control, and when would you use one
+over the other in a real analysis?</p>
+<pre class="r"><code>seq(1, 20, by = 2)</code></pre>
+<pre><code>##  [1]  1  3  5  7  9 11 13 15 17 19</code></pre>
+<pre class="r"><code>seq(1, 20, length.out = 5)</code></pre>
+<pre><code>## [1]  1.00  5.75 10.50 15.25 20.00</code></pre>
 <p><strong>Question #4:</strong></p>
-<ul>
-<li><p>In subset-logical, if you filter on Sex == 1 using the raw
-numeric code rather than the word “Male”.</p></li>
-<li><p>Looking at the result, how could someone unfamiliar with the
-legend misinterpret this output?</p></li>
-<li><p>What problem does this illustrate about working with coded data
-before it has been labeled?</p></li>
-</ul>
-<p><strong>Answer:</strong> Filtering with Sex == 1 works on the raw
-code, but someone who doesnt know the legend could easily misread what 1
-means. It shows why coded data is risky to use before you attach clear
-labels-without the key, the numbers are easy to misinterpret.</p>
+<ol style="list-style-type: lower-alpha">
+<li>Generate a sequence for 20 to 60. Name the vector as vec_num</li>
+</ol>
+<pre class="r"><code>vec_num &lt;- 20:60</code></pre>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>Get the mean for vec_num.</li>
+</ol>
+<pre class="r"><code>mean(vec_num)</code></pre>
+<pre><code>## [1] 40</code></pre>
+<ol start="3" style="list-style-type: lower-alpha">
+<li>Get the sum for vec_num.</li>
+</ol>
+<pre class="r"><code>sum(vec_num)</code></pre>
+<pre><code>## [1] 1640</code></pre>
+<ol start="4" style="list-style-type: lower-alpha">
+<li>How many data points are there in vec_num?</li>
+</ol>
+<pre class="r"><code>length(vec_num)</code></pre>
+<pre><code>## [1] 41</code></pre>
+</div>
+<div id="part-b-subsetting-accessing-vectors" class="section level2">
+<h2>Part B — Subsetting (Accessing) Vectors</h2>
+<pre class="r"><code>grades &lt;- c(88, 92, 79, 95, 84)
+names(grades) &lt;- c(&quot;Math&quot;, &quot;Science&quot;, &quot;English&quot;, &quot;History&quot;, &quot;PE&quot;)
+
+# TODO: Access the 3rd element of grades using positional indexing
+
+# TODO: Access the 1st abd 4th element of grades using positional indexing
+
+# TODO: Access &quot;Science&quot; and &quot;PE&quot; together using their names
+
+grades &lt;- c(88, 92, 79, 95, 84)
+names(grades) &lt;- c(&quot;Math&quot;, &quot;Science&quot;, &quot;English&quot;, &quot;History&quot;, &quot;PE&quot;)
+grades[3]</code></pre>
+<pre><code>## English 
+##      79</code></pre>
+<pre class="r"><code>grades[c(1, 4)]</code></pre>
+<pre><code>##    Math History 
+##      88      95</code></pre>
+<pre class="r"><code>grades[c(&quot;Science&quot;, &quot;PE&quot;)]</code></pre>
+<pre><code>## Science      PE 
+##      92      84</code></pre>
+<pre class="r"><code># TODO: Return all elements of grades EXCEPT the 1st and 4th, using
+# negative indexing, e.g. grades[-c(...)]
+
+grades[-c(1, 4)]</code></pre>
+<pre><code>## Science English      PE 
+##      92      79      84</code></pre>
+<pre class="r"><code># TODO: Use a logical condition to return only the grades that are
+# greater than or equal to 85 (hint: grades[grades &gt;= 85])
+
+grades[grades &gt;= 85]</code></pre>
+<pre><code>##    Math Science History 
+##      88      92      95</code></pre>
 <p><strong>Question #5:</strong></p>
+<p>Negative indexing (grades[-1]) removes an element, while logical
+indexing (grades[grades &gt;= 85]) filters by a condition.</p>
+<p>Describe a real situation where you would need negative indexing, and
+a different situation where logical indexing would be the better
+tool.</p>
+<p><strong>Answer:</strong></p>
 <ul>
-<li>Out of 20 respondents, how many are Male (Sex == 1)? Compute this
-using nrow() on your filtered result from subset-logical or
-sum(survey$Sex == 1). Does this small sample size change how confident
-you would be generalizing any pattern you find in this dataset to a
-larger population? Explain your reasoning.</li>
+<li><p>Negative indexing: Useful when you know the positions to
+drop.</p></li>
+<li><p>Logical indexing: Useful when you want to keep values that meet a
+condition.</p></li>
 </ul>
-<p><strong>Answer:</strong> Use nrow() on the filtered data or
-sum(survey$Sex == 1) to count how many are Male. With only 20
-respondents the same is tiny, so any patterns you see could easily be
-chance and shouldnt be confidently generalized to a bigger
-population.</p>
 <p><strong>Question #6:</strong></p>
-<ul>
-<li><p>Run summary(). Every column shows numeric summary statistics
-(min, mean, max, etc.) – including Sex and TypesOfHouses, which are
-really categories, not quantities.</p></li>
-<li><p>Explain why R doesn’t know, by itself, that these columns are
-categorical, and what this tells you about the difference between how
-data is stored versus what it means.</p></li>
-</ul>
-<p><strong>Answer:</strong> R treats Sex and TypesOfHouses like numbers
-in summary() because thats how theyre stored. It has no idea theyre
-actually categories, which shows the gap between the raw storage and
-what the data really means.</p>
+<p>What happens if you run grades[10] (an index that doesn’t exist)? Run
+it, observe the result, and explain why R responds this way instead of
+throwing an error.</p>
+<p><strong>Answer:</strong> If you run grades[10] it returns NA. R
+doesnt throw an error when you ask for an index that doesnt exist with
+single brackets. It simply returns a missing value instead.</p>
 <p><strong>Question #7:</strong></p>
+<p>Print a vector with the integers between 1 and 100 that are not
+divisible by 3, 5 and 7 using filter option.</p>
+<pre class="r"><code>Filter(function(i) { all(i %% c(3,5,7) != 0)}, seq(100))</code></pre>
+<pre><code>##  [1]  1  2  4  8 11 13 16 17 19 22 23 26 29 31 32 34 37 38 41 43 44 46 47 52 53
+## [26] 58 59 61 62 64 67 68 71 73 74 76 79 82 83 86 88 89 92 94 97</code></pre>
+</div>
+<div id="part-c-vector-operations-and-append" class="section level2">
+<h2>Part C — Vector Operations and append()</h2>
+<pre class="r"><code>x &lt;- c(1, 2, 3, 4)
+y &lt;- c(10, 20, 30, 40)
+
+# TODO: Add x and y element-wise, and print the result
+
+# TODO: Multiply every element of x by 2
+
+x + y</code></pre>
+<pre><code>## [1] 11 22 33 44</code></pre>
+<pre class="r"><code>x * 2</code></pre>
+<pre><code>## [1] 2 4 6 8</code></pre>
+<pre class="r"><code>z &lt;- c(1, 2, 3, 4, 5, 6)
+short &lt;- c(1, 0)
+
+# TODO: Add z and short together and print the result. Run this even
+# though the vectors are different lengths -- observe what R does.
+
+z + short</code></pre>
+<pre><code>## [1] 2 2 4 4 6 6</code></pre>
+<pre class="r"><code>fruits &lt;- c(&quot;apple&quot;, &quot;banana&quot;, &quot;cherry&quot;)
+
+# TODO: Use append() to add &quot;date&quot; to the end of fruits
+
+# TODO: Use append() with the &quot;after&quot; argument to insert &quot;kiwi&quot; between
+# &quot;apple&quot; and &quot;banana&quot; (i.e., after position 1)
+
+fruits &lt;- append(fruits, &quot;date&quot;)
+fruits</code></pre>
+<pre><code>## [1] &quot;apple&quot;  &quot;banana&quot; &quot;cherry&quot; &quot;date&quot;</code></pre>
+<pre class="r"><code>fruits &lt;- append(fruits, &quot;kiwi&quot;, after = 1)
+fruits</code></pre>
+<pre><code>## [1] &quot;apple&quot;  &quot;kiwi&quot;   &quot;banana&quot; &quot;cherry&quot; &quot;date&quot;</code></pre>
+<p><strong>Question #8:</strong></p>
+<p>In the vectors-recycling chunk, z has 6 elements and short has only
+2. R still produced an answer instead of an error.</p>
+<p>Explain, in your own words, what R’s “recycling rule” did to short to
+make the addition work.</p>
+<p><strong>Answer:</strong> R recycled the shorter vector(short) by
+repeating its values until it matched the length of z. So c(1, 0) became
+c(1, 0, 1, 0, 1, 0) and the addition worked.</p>
+<p><strong>Question #9:</strong></p>
+<p>Now try adding z (length 6) to c(1, 0, 1) (length 3) instead. Does it
+work cleanly?</p>
+<p>Then try adding z to c(1, 0, 1, 1) (length 4). Compare the warning
+(or lack of one) in each case, and explain what condition determines
+whether R recycles silently versus with a warning.</p>
+<p><strong>Answer:</strong></p>
 <ul>
-<li>Compare the mean of PersonsAtHome to the mean of Sex in your summary
-output. Which of these two means is actually meaningful to report to
-someone, and which one is not? Justify your answer.</li>
+<li><p>z + c(1, 0, 1)- it works but gives a warning</p></li>
+<li><p>z + c(1, 0, 1, 1)- works silenty with no warning</p></li>
 </ul>
-<p><strong>Answer:</strong> The mean of PersonsAtHome makes sense
-because its a real count. The mean of Sex doesnt-its just category
-codes, so averaging them gives a meaningless number.</p>
+</div>
+<div id="part-d-lists-creating-and-subsetting" class="section level2">
+<h2>Part D — Lists: Creating and Subsetting</h2>
+<pre class="r"><code># TODO: Create a list called student with these named elements:
+# name = &quot;Maria Santos&quot;, age = 20, grades = c(88, 92, 79),
+# is_enrolled = TRUE
+
+student &lt;- list(
+  name = &quot;Maria Santos&quot;,
+  age = 20,
+  grades = c(88, 92, 79),
+  is_enrolled = TRUE
+)</code></pre>
+<pre class="r"><code># TODO: Access the &quot;grades&quot; element of student using single brackets
+# student[&quot;grades&quot;] -- then check its type with class()
+
+student[&quot;grades&quot;]</code></pre>
+<pre><code>## $grades
+## [1] 88 92 79</code></pre>
+<pre class="r"><code>class(student[&quot;grades&quot;])</code></pre>
+<pre><code>## [1] &quot;list&quot;</code></pre>
+<pre class="r"><code># TODO: Access the &quot;grades&quot; element of student using double brackets
+# student[[&quot;grades&quot;]] -- then check its type with class()
+
+student[[&quot;grades&quot;]]</code></pre>
+<pre><code>## [1] 88 92 79</code></pre>
+<pre class="r"><code>class(student[[&quot;grades&quot;]])</code></pre>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<pre class="r"><code># TODO: Access the &quot;name&quot; element of student using the $ operator
+# student$name
+
+student$name</code></pre>
+<pre><code>## [1] &quot;Maria Santos&quot;</code></pre>
+<pre class="r"><code># TODO: From student, extract just the SECOND grade in the grades vector
+# in a single expression, e.g. student[[&quot;grades&quot;]][2] or student$grades[2]
+
+student$grades[2]</code></pre>
+<pre><code>## [1] 92</code></pre>
+<p><strong>Question #10:</strong></p>
+<p>student[“grades”] and student[[“grades”]] look similar but return
+objects of different classes.</p>
+<p>Run class() on each and explain the difference in what single-bracket
+[ ] versus double-bracket [[ ]] return from a list.</p>
+<p><strong>Answer:</strong></p>
+<ul>
+<li><p>class(student[“grades”])- “list”</p></li>
+<li><p>class(student[[“grades”]])- “numeric”</p></li>
+</ul>
+<p>Single brackets always return a list while the double brackets return
+the actual content inside the list element.</p>
+<p><strong>Question #11:</strong></p>
+<p>Why do you think R makes a distinction between [ ] and [[ ]] for
+lists, but a vector only needs [ ]? Think about what a list can contain
+that a vector cannot.</p>
+<p><strong>Answer:</strong> R needs [ ] to keep the list structure and
+[[ ]] to extract the raw content because lists can hold mixed types of
+objects. While vectors hold only one type, so a single [ ] is
+enough.</p>
+</div>
+<div id="part-e-critical-thinking-challenge" class="section level2">
+<h2>Part E — Critical Thinking Challenge</h2>
+<pre class="r"><code>inventory &lt;- list(
+  item = c(&quot;Notebook&quot;, &quot;Pen&quot;, &quot;Eraser&quot;),
+  price = c(25.50, 10.00, 5.00),
+  in_stock = c(TRUE, TRUE, FALSE)
+)
+
+# TODO: Using what you learned in Parts B and D, print only the items
+# (from inventory$item) that are currently in stock (in_stock == TRUE)
+
+inventory$item[inventory$in_stock]</code></pre>
+<pre><code>## [1] &quot;Notebook&quot; &quot;Pen&quot;</code></pre>
+<pre class="r"><code># TODO: A new product &quot;Ruler&quot; priced at 15.00 and in stock (TRUE) needs
+# to be added to inventory. Use append() to add &quot;Ruler&quot; to
+# inventory$item, 15.00 to inventory$price, and TRUE to inventory$in_stock.
+# (You will need three separate append() calls, one per vector.)
+
+inventory$item &lt;- append(inventory$item, &quot;Ruler&quot;)
+inventory$price &lt;- append(inventory$price, 15.00)
+inventory$in_stock &lt;- append(inventory$in_stock, TRUE)</code></pre>
+<p><strong>Question #12:</strong></p>
+<p>In challenge-1, you combined logical indexing on one vector
+(in_stock) to filter a different vector (item) inside the same list.
+Explain, step by step, why inventory<span class="math inline">\(item[inventory\)</span>in_stock] works even though
+item and in_stock are stored as separate elements of the list.</p>
+<p><strong>Answer:</strong> inventory<span class="math inline">\(item
+and inventory\)</span>in_stock are same length vectors R uses the
+logical values from in_stock to filter item by position, so it works
+even though they are separate list elements.</p>
+<p><strong>Question #13:</strong></p>
+<p>Suppose a classmate stores related data as three separate,
+unconnected vectors (item_names, item_prices, item_stock) instead of
+grouping them into one list like inventory. What risks or bugs could
+this create as the dataset grows or gets reordered? Argue for or against
+using a list (or, later, a data frame) instead of separate vectors.</p>
+<p><strong>Answer:</strong> Separate vectors can get out of sync if one
+is sorted or changed. A list keeps related data together and avoids
+those bugs.</p>
+</div>
+<div id="conclusion" class="section level2">
+<h2>Conclusion</h2>
+<p>In 3–4 sentences, summarize the key differences between vectors and
+lists in R, and explain when you would choose one data structure over
+the other.</p>
+<p><strong>Answer:</strong> Vectors store only one type of data and are
+simple and fast for calculations lists can hold mixed types of nested
+objects, making them more flexible for complex data. Use a vector when a
+values are the same type and you mainly need math or filtering. Use a
+list when you need to group different kinds of information together.</p>
 </div>
 
 
