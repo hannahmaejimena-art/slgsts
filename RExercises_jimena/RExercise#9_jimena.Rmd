@@ -1,0 +1,156 @@
+---
+title: "RExercise#9_jimena"
+author: "Hannah Mae T. Jimena"
+date: "2026-11-09"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+**R Lab: Basic Operations of R Programming**
+
+Hannah Mae T. Jimena
+
+## Part A — Creating Data Frames
+
+**Question #1**
+
+a. The table below shows the data about shoe size and height. Create a data frame. Save it as shoesize.csv
+```{r}
+Shoe.size <- c(6.5, 9.0, 8.5, 8.5, 10.5, 7.0, 9.5, 9.0, 13.0, 7.5, 10.5, 8.5, 12.0, 10.5,
+               13.0, 11.5, 8.5, 5.0, 10.0, 6.5, 7.5, 8.5, 10.5, 8.5, 10.5, 11.0, 9.0, 13.0)
+Height <- c(66.0, 68.0, 64.5, 65.0, 70.0, 64.0, 70.0, 71.0, 72.0, 64.0, 74.5, 67.0, 71.0, 71.0,
+            77.0, 72.0, 59.0, 62.0, 72.0, 66.0, 64.0, 67.0, 73.0, 69.0, 72.0, 70.0, 69.0, 70.0)
+Gender <- c("F", "F", "F", "F", "M", "F", "F", "F", "M", "F", "M", "F", "M", "M",
+            "M", "M", "F", "F", "M", "F", "F", "M", "M", "F", "M", "M", "M", "M")
+shoesize <- data.frame(Shoe.size, Height, Gender)
+write.csv(shoesize, "shoesize.csv", row.names = FALSE)
+```
+
+b. Then try to import the saved csv into the R environment. Display the last 5 rows.
+```{r}
+shoesize <- read.csv("shoesize.csv")
+tail(shoesize, 5)
+```
+
+c. Describe the data by showing the structures and its content.
+```{r}
+str(shoesize)
+summary(shoesize)
+head(shoesize)
+```
+
+d. Inspect its dimensions. How many rows? How about columns?
+```{r}
+dim(shoesize)
+```
+
+- Rows: 28
+- Columns: 3
+
+e. Inspect by using summary(). What is the difference of the summary() from str() function?
+```{r}
+summary(shoesize)
+```
+**Difference:**
+
+- str() shows the structure of the object
+- summary() shows descriptive statistics 
+
+f. Create a subset by males and females with their corresponding shoe size and height. What its result? Show the R scripts.
+```{r}
+males   <- subset(shoesize, Gender == "M", select = c(Shoe.size, Height))
+females <- subset(shoesize, Gender == "F", select = c(Shoe.size, Height))
+
+males
+females
+```
+
+**Result:**
+
+- 14 males and 14 females
+
+g. Find the mean of shoe size and height of the respondents. Write the R scripts and its result.
+```{r}
+mean(shoesize$Shoe.size)
+mean(shoesize$Height)
+```
+
+**Result:**
+
+- Mean shoe size ≈ 9.41
+
+- Mean height ≈ 68.57
+
+
+h. Is there a relationship between shoe size and height? Why?
+
+Yes, there is a positive relationship
+```{r}
+cor(shoesize$Shoe.size, shoesize$Height)
+```
+
+The correlation coefficient is approximately 0.78, which indicates a moderately strong positive linear relationship: people with larger shoe sizes tend to be taller.
+
+**Question #2:**
+
+- A nominal variable is a categorical variable without an implied order. This means that it is impossible to say that ‘one is worth more than the other’.
+- Create factors for the gender.
+```{r}
+shoesize$Gender <- factor(shoesize$Gender)
+shoesize$Gender <- factor(shoesize$Gender, levels = c("F", "M"))
+
+str(shoesize$Gender)
+levels(shoesize$Gender)
+```
+
+**Question #3:**
+
+When R Markdown knits a document, it uses the folder containing the .Rmd file as the working directory — NOT whatever folder your R console happened to be in beforehand. Why do you think this design choice makes an .Rmd file’s imports more reliable and reproducible when shared with someone else?
+
+**Answer:** R Markdown always sets the working directory to the folder that holds the .Rmd file itself. That way relative file paths (like reading a CSV that sits next to the .Rmd) stay the same no matter whose computer the project is opened on or what folder their R console was last in. When you share the whole folder, the imports just work for the next person without any extra setup.
+
+**Question #4:**
+
+Run str(shoes) and note the type R assigned to the Gender column. Is it what you expected? Explain what could go wrong in later analysis if a column you expected to be numeric (like ShoeSize) was accidentally imported as text (character) instead — for example, because of a stray non-numeric value in the original file.
+
+**Answer:** When you run str(shoes), Gender usually shows up as character (or factor if you already converted it), which is normal for a categorical variable. If a column you expected to be numeric like ShoeSize got imported as character because of one stray non-numeric value, any later calculations—means, correlations, models, plots—will either throw errors or produce garbage results until you clean the data and convert it back to numeric.
+
+**Question #5:**
+
+Why is it good practice to check BOTH head(shoes) and tail(shoes) after importing a file, instead of just head()? What kind of import problem would head() alone fail to catch?
+
+**Answer:** It’s good practice to check both head() and tail() because the first few rows can look perfect while problems only show up at the end of the file. Head() alone would miss things like truncated last rows, extra junk lines, mismatched columns, or parsing errors that only appear toward the bottom of the data.
+
+**Question #6:**
+
+a. Compute for the correlation
+```{r}
+# TODO: Use cor(shoes$ShoeSize, shoes$Height) to compute the correlation
+# between shoe size and height across ALL observations
+
+cor(shoesize$Shoe.size, shoesize$Height)
+```
+
+b.
+```{r}
+# TODO: Return all rows where ShoeSize is greater than or equal to 11,
+# regardless of gender
+
+shoesize[shoesize$Shoe.size >= 11, ]
+```
+
+**Question #7:**
+
+- Compare the mean height and mean shoe size between the female and male subsets. Describe the pattern you see.
+
+- Does this dataset support the idea that shoe size and height are related WITHIN each gender group, or could gender itself be an important factor you’d need to account for separately when studying that relationship?
+
+**Answer:** Males tend to have both higher average height and larger average shoe size than females. The overall correlation between shoe size and height is partly driven by this gender difference, so the relationship looks weaker (or needs to be checked separately) once you look inside each gender group. Gender itself is an important factor that should be accounted for.
+
+
+
+
+
